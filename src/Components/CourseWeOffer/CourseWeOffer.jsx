@@ -27,11 +27,10 @@ const CourseWeOffer = () => {
   return (
     <div className="text-white my-24">
       <div className="cwo-font text-white text-2xl text-center pb-12 font-medium">
-        COURSE WE OFFER
-      </div>
+      TECHNOLOGIES WE HAVE      </div>
       <div className="space-y-5">
         {/* First Row */}
-        <div className="flex space-x-10 justify-center">
+        <div className="flex space-x-10  justify-center">
           {courses.slice(0, 4).map((course, idx) => (
             <div key={idx}>
               <Boxes image={course.image} title={course.title} />

@@ -1,7 +1,7 @@
 // Boxes.jsx
 const Boxes = ({ image, title }) => {
   return (
-    <div className="bg-gray-800 rounded-lg p-2 shadow-lg w-48 text-center">
+    <div className="bg-gray-800 rounded-lg p-2 shadow-lg w-42 h-44 text-center">
       <img
         src={image}
         alt={title}
