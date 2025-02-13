@@ -1,0 +1,24 @@
+#gradient-color{
+    background: linear-gradient(90deg, #152439 0%, #596775 100%);
+
+} 
+
+.bg-grad-homepage{
+    background: #056777;
+    border-radius: 50%;
+    font-size: 250px;
+    height: 350px; /* Adjust height if needed */
+    width: 300px; /* Adjust width if needed */
+    filter: blur(100px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.horizontal-band {
+    background: linear-gradient(45deg, #181739 47%, #7fb7b7 100%);
+    height: 160px;
+    width: 80%;
+    border-radius: 30px;
+    margin: 0 auto 30px;
+  }

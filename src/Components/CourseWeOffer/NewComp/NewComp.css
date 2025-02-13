@@ -1,0 +1,19 @@
+.bg-grad-out-box {
+  background: linear-gradient(180deg, #9cc6c9 0%, #86a9b2 30%, #54677b 100%);
+}
+
+.border-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-border {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    
+    background: linear-gradient(180deg, #54677b 0%, #54677b 100%);
+  }
+  
