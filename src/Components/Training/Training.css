@@ -2,7 +2,7 @@
 .training-card {
   background: linear-gradient(360deg, #051937, #596775);
   border-radius: 30px;
-  padding: 40px;
+  padding: 10px;
   height: 200%; /* Let the content determine the height */
   display: flex;
   flex-direction: column;
@@ -11,8 +11,13 @@
   color: #d1d5db;
   text-align: center;
   box-sizing: border-box;
+  margin: 10% 0 10% 7%;
 }
 
+
+.txt{
+  color: red;
+}
 /* Responsive design tweaks */
 @media (max-width: 992px) {
   .horizontal-band {
@@ -45,3 +50,82 @@
 
 
 
+
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+
+.training-card {
+  width: 350px;
+  height: 350px;
+  perspective: 1000px;
+}
+.training-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.training-card:hover .training-inner {
+  transform: rotateY(180deg);
+}
+.training-front, .training-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.training-front img {
+  object-fit: cover;
+}
+.training-back {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  transform: rotateY(180deg);
+}
