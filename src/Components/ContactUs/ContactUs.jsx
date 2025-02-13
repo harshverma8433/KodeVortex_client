@@ -77,7 +77,10 @@ const ContactUs = () => {
             <h1 className='pb-4 text-white text-2xl tracking-wide text-font text-center'>CONTACT US</h1>
             <div className='flex space-x-10'>
             <div className="contact-info ">
-              <h2>Get in touch with us</h2>
+              <div className='text-center mb-16'>
+                <p className='text-4xl'>KodeVortex, LLC </p>
+                <p className='text-xl'> Experience the evolution of learning</p>
+              </div>
               
               <div className="info-item">
                 <div className="icon-container">
@@ -87,7 +90,7 @@ const ContactUs = () => {
                 </div>
                 <div className="info-text">
                   <h3>Our location</h3>
-                  <p>Lorem ipsum dolor sit amet,consectetur</p>
+                  <p>C-01,, Maruti Kunj, Gurugram, 122102</p>
                 </div>
               </div>
     
@@ -99,7 +102,7 @@ const ContactUs = () => {
                 </div>
                 <div className="info-text">
                   <h3>Phone number</h3>
-                  <p>Lorem ipsum dolor sit amet,consectetur</p>
+                  <p>+91  7091204379</p>
                 </div>
               </div>
     
@@ -112,7 +115,8 @@ const ContactUs = () => {
                 </div>
                 <div className="info-text">
                   <h3>Email</h3>
-                  <p>Lorem ipsum dolor sit amet,consectetur</p>
+                  <p>vijay.singh@kodevortex.in
+                  www.kodevortex.in</p>
                 </div>
               </div>
             </div>

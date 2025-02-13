@@ -95,7 +95,7 @@ const App = () => {
 
                   {/* <AboutUsSectioon /> */}
                   <OurTeam />
-                  <FormPage />
+                  {/* <FormPage /> */}
                   <FAQs />
                   <ContactUs />
                 </>
