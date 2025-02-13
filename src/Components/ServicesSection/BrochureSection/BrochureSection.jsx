@@ -37,7 +37,7 @@ const BrochureSection = () => {
       </div>
     </div>
     <div className=" mx-24 my-10 ">
-    <h1 className="text-white text-font  text-start ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis madf</h1>
+    <h1 className="text-white text-font  text-start ">Unlock your potential with expert-led training, industry-focused courses, and hands-on projects. Gain real-world experience through live collaborations with top companies. Get expert reviews to refine your projects and stay ahead in your career. Join us to bridge the gap between learning and industry success!</h1>
 
     </div>
       </div>

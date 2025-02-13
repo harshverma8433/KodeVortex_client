@@ -87,7 +87,7 @@ const AssociateInstitution = () => {
     slidesToScroll: 1, // Number of images to scroll per swipe
     autoplay: true, // Enables auto sliding
     autoplaySpeed: 2000, // Delay between auto sliding
-    arrow : false,
+    arrows : false,
     responsive: [
       {
         breakpoint: 1024,
