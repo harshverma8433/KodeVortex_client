@@ -3,13 +3,13 @@ import { useRecoilState } from "recoil";
 import LoginState from "../../recoil/state/LoginState";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Logo3 from "./Logo3.png";
 import insta from "./insta.png"
 import linkedin from "./linkedin.png"
 import x from "./x.png"
 import youtube from "./youtube.png"
 import toast from "react-hot-toast";
 import "./LoginPage.css"
+import logo3 from "./logo3.png"
 const LoginPage = () => {
   const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ const LoginPage = () => {
       <div className="flex w-full items-center gap-x-48 bg-black pl-12">
         <div className=" w-[54%] pt-5  items-end flex flex-col">
           <div className="flex pb-6 w-[60%] mr-6">
-            <img src={Logo3} alt="icon" className="w-52 h-10" />
+            <img src={logo3} alt="icon" className="w-52 h-10" />
           </div>
           <form action="#" onSubmit={handleLogin}>
             <h1 className="font-outfit text-[20px] text-start font-normal leading-[23.87px] text-white py-6">
