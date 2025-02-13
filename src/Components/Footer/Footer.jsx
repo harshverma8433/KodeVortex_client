@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "./21.png"
+import fo1 from "../../../public/cropped-image_1.svg"
+import fo2 from "../../../public/cropped-image_2.svg"
+import fo3 from "../../../public/cropped-image_3.svg"
+import fo4 from "../../../public/cropped-image_4.svg"
 
 const Footer = () => {
   return (
@@ -16,22 +20,22 @@ const Footer = () => {
             {
               url: "https://twitter.com/kodeVortex",
               name: "Twitter",
-              icon: "/public/cropped-image_3.svg",
+              icon: fo3
             },
             {
               url: "https://www.instagram.com/kodevortex",
               name: "Instagram",
-              icon: "/public/cropped-image_2.svg",
+              icon: fo2,
             },
             {
               url: "https://www.youtube.com/channel/UCXXXXXX",
               name: "YouTube",
-              icon: "/public/cropped-image_1.svg",
+              icon:  fo1,
             },
             {
               url: "https://www.linkedin.com/company/kodevortex",
               name: "LinkedIn",
-              icon: "/public/cropped-image_4.svg",
+              icon: fo4,
             },
           ].map((social, index) => (
             <div className="text-center" key={index}>
