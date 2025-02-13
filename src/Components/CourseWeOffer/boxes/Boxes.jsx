@@ -1,11 +1,15 @@
-import React from 'react'
-
-const Boxes = () => {
+// Boxes.jsx
+const Boxes = ({ image, title }) => {
   return (
-    <div className='w-48 h-10 rounded-3xl bg-box-col'>
-        
+    <div className="bg-gray-800 rounded-lg p-2 shadow-lg w-48 text-center">
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-32 object-cover rounded-md"
+      />
+      <h3 className="text-lg font-semibold mt-2">{title}</h3>
     </div>
-  )
-}
+  );
+};
 
-export default Boxes
+export default Boxes;

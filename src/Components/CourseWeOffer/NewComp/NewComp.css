@@ -17,3 +17,19 @@
     background: linear-gradient(180deg, #54677b 0%, #54677b 100%);
   }
   
+
+
+  @keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-marquee {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+  }
+  
