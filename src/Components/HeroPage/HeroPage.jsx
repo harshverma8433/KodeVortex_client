@@ -37,7 +37,7 @@ function HeroPage() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 7000,
+    autoplaySpeed: 5000,
     arrows: false,
   };
 
@@ -56,7 +56,7 @@ function HeroPage() {
         <Slider {...sliderSettings} className="row my-16 w-[80%] h-[150px] pr-12 overflow-hidden horizontal-band mx-auto   ">
           {quotes.map((quote, index) => (
             <div key={index} className="text-center  w-[75%] h-[150px]   text-lg pr-12 font-medium flex items-center justify-center mt-4 text-white py-4">
-              <p className="text-3xl px-12">{quote.text}</p>
+              <p className="text-3xl px-12 font-serif">“{quote.text}”</p>
               <p className="text-xl mt-2 text-end font-semibold">- {quote.author}</p>
             </div>
           ))}
