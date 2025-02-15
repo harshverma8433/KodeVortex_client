@@ -1,87 +1,78 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import AlgoAcharyaContent from "../../Contents/AlgoAcharyaContent";
-import AlgoAcharyaSliderContent from "../../Contents/AlgoAcharyaSliderContent"
+import React from 'react'
+
 const AlgoAcharya = () => {
-  const settings = {
-    dots: true, // Enable dots for navigation
-    infinite: true, // Infinite looping
-    speed: 500, // Transition speed in ms
-    slidesToShow: 1, // Show one slide at a time
-    slidesToScroll: 1, // Scroll one slide at a time
-    arrows: false, // Disable navigation arrows
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 2000, // Transition every 2 seconds
-  };
-
-
   return (
-    <div className="h-[450px]">
-      <div className="flex flex-col   md:flex-row space-x-0 md:space-x-8 items-center justify-center">
-        {/* Static Section */}
-        <div className="mb-8 md:mb-0  w-[60%]">
-          <div className="relative flex ">
-            <div className="bg-grad1 relative mx-auto bottom-16 right-12 flex justify-center items-center"></div>
+    <div className="max-w-md  bg-[#1B2B4B] relative rounded-3xl p-6 text-white">
+          <h1 className="text-3xl text-center underline font-bold uppercase tracking-wider">AlgoAcharya</h1>
+      <div className="flex items-center justify-center gap-4 my-6">
+        <div className="w-72 h-28 bg-gray-300 rounded-full"></div>
+        <div>
+          <p className="text-lg text-gray-300 mt-1">
+            Empowering students with career-focused technology training and placement preparation.
+          </p>
+        </div>
+      </div>
 
-            <h1 className="text-4xl absolute left-48 mx-auto text-white text-center ">
-              ALGOCHARYA
-            </h1>
+      <div className=" bg-[#CF9274] py-1 px-10 w-fit  rounded-full  mb-6 ml-6">
+        <p className="text-md text-black">Duration: 5 or 10 days</p>
+      </div>
 
-            <div className="grid absolute grid-cols-2 top-[75px] w- md:grid-cols-4 gap-4 px-4 md:px-0">
-              {AlgoAcharyaContent
-                .map((_, i) => (
-                  <div
-                    key={i}
-                    className="bg-color h-[180px] w-[140px] flex flex-col px-3 justify-evenly items-center text-white rounded-xl"
-                  >
-                    <h1 className="font-serif">{_.title}</h1>
-                    <div className="w-10 overflow-hidden h-10 rounded-full bg-color-1"><img className="h-full w-full" src={_.image} alt="" /> </div>
-                    <p className="text-[9px] pl-3 tracking-wider">
-                      {_.content}
-                    </p>
-                  </div>
-                ))}
+      <div className="mb-6">
+        <div className=" text-white p-3 rounded-lg mb-4">
+          <h2 className="text-lg absolute left-0 px-12 rounded-r-full py-1 bg-[#056777] font-semibold mb-3">Technology</h2>
+          <div className="flex flex-col space-y-1 font-semibold  items-center justify-center  text-xl rounded-l-full mt-16   bg-[#4E4C7E] w-96  right-0 absolute  h-28  px-1">
+            
+             <div className='flex  space-x-5  w-[20rem]'>
+             <p> • Python</p>
+             <p> • Advanced Python</p>
+             </div>
+             <div className='flex  space-x-5  w-[20rem]'>
+             <p> • Machine Learning</p>
+             <p> • MERN Stack</p>
+             </div>
+              <div className='flex  space-x-5  w-[20rem]'>
+              <p> • Cybersecurity</p>
+              <p> • Features</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='mt-48'>
+        <h2 className="text-lg absolute  left-0 px-12 rounded-r-full py-1 bg-[#056777] font-semibold ">Features</h2>
+        <div className="space-y-4 text-2xl pt-[50px] ">
+          <div className="flex items-start gap-2">
+            <span className="text-[#2A9D8F] mt-1">✓</span>
+            <div>
+              <h3 className="font-medium">Hands-on learning</h3>
+              <p className="text-sm text-gray-300">tailored to the student's chosen career path.</p>
+            </div>
+          </div>
+          
+          <div className="flex items-start gap-2">
+            <span className="text-[#2A9D8F] mt-1">✓</span>
+            <div>
+              <h3 className="font-medium">Placement prep:</h3>
+              <ul className="text-sm text-gray-300 list-inside space-y-1">
+                <li>• Comprehensive DSA practice (Leetcode-based)</li>
+                <li>• Aptitude training</li>
+                <li>• Mock interviews</li>
+                <li>• Ensure job readiness</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2">
+            <span className="text-yellow-400 mt-1">👑</span>
+            <div>
+              <h3 className="font-medium">Premium addition:</h3>
+              <p className="text-sm text-gray-300">In-depth coverage of fundamental subjects from semester</p>
             </div>
           </div>
         </div>
-
-        {/* Slider Section */}
-        <Slider
-          className="bg-color-2 rounded-xl flex justify-center items-center px-6 w-[320px] h-[250px]"
-          {...settings}
-        >
-          {AlgoAcharyaSliderContent.map((element, index) => (
-            <div key={index} className="relative rounded-xl">
-              <img
-                src={element.image}
-                alt={`Slide ${index + 1}`}
-                className="w-[300px] h-[220px] object-cover rounded-xl"
-              />
-              <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-opacity-50">
-                <div className="w-16 h-16 rounded-full bg-color-1"></div>
-                <h1 className="text-xs pl-6 text-white p-3">
-                  {element.content}
-                </h1>
-              </div>
-            </div>
-          ))}
-        </Slider>
       </div>
-
-      <h1 className="px-8 pt-16 text-white">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam odit
-        doloribus illum! Nihil corporis deserunt eum voluptatibus aliquam ipsa
-        ab harum incidunt libero dolores, nulla, ad odio? Voluptates, labore
-        rerum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-        odit doloribus illum! Nihil corporis deserunt eum voluptatibus aliquam
-        ipsa ab harum incidunt libero dolores, nulla, ad odio? Voluptates,
-        labore rerum.
-      </h1>
-
-      <div className="bg-grad-purple relative right-80 bottom-60 "></div>
     </div>
-  );
-};
+  )
+}
 
-export default AlgoAcharya;
+export default AlgoAcharya

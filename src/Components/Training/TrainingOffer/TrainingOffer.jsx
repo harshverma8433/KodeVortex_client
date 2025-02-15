@@ -42,7 +42,7 @@ const TrainingOffer = () => {
             style={{ marginLeft: index === 0 ? "0" : "-20px" }}
             onMouseEnter={() => setHoverIndex(index)}
             onMouseLeave={() => setHoverIndex(null)}
-          >  </div>
+          > {index+1} </div>
           {hoverIndex === index && (
             <div className="h-12 w-0.5 mt-1 mr-5 bg-black animate-pulse"></div>
           )}
@@ -72,7 +72,7 @@ const TrainingOffer = () => {
               .map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-24 h-24 cursor-pointer mt-6 rounded-full bg-[#181739] transition-all border border-white duration-500 ${
+                    className={`w-24 h-24 flex justify-center items-center text-3xl flex justify-center items-center cursor-pointer mt-6 rounded-full bg-[#181739] transition-all border border-white duration-500 ${
                       hoverIndex1 === index
                         ? "border-black scale-110 bg-[#252447]"
                         : ""
@@ -80,7 +80,7 @@ const TrainingOffer = () => {
                     style={{ marginLeft: index === 0 ? "0" : "-20px" }}
                     onMouseEnter={() => setHoverIndex1(index)}
                     onMouseLeave={() => setHoverIndex1(null)}
-                  ></div>
+                  > {index+1}  </div>
                   {hoverIndex1 === index && (
                     <div className="h-12 w-0.5 mt-1 mr-5 bg-black animate-pulse"></div>
                   )}
