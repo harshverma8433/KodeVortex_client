@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import arrow from "./arrow.png";
-import polygon from "./pp.png";
+import polygon from "../../../public/pp.png";
 const InternshipPage = () => {
   return (
     <>
