@@ -7,7 +7,7 @@ const TrainingPage = () => {
   return (
     <>
       <div className="flex relative h-[40rem]    ">
-        <div className="absolute w-[80%]  mt-24 ml-12 flex justify-center flex-col items-center px-44  space-y-6 ">
+        <div className="absolute w-[80%]  mt-24 ml-12 flex justify-center flex-col items-center px-44   space-y-6 ">
           <div className="w-[45rem] flex justify-end ">
             <h1 className="text-7xl font-bold    text-white text-center ml-">
               DISCOVER THE CAREER TO SKILL up YOURSELF

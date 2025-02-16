@@ -8,7 +8,7 @@ const Section2 = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-16 px-8">
+    <section className="bg-red text-white py-16 px-8">
       <div className="grid grid-cols-1 gap-12">
         {steps.map((step) => (
           <BoxI key={step.id} {...step} color="#056777" align="left" textalign="right" />
