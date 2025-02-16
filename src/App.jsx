@@ -30,7 +30,6 @@ import BrochureSection from "./Components/ServicesSection/BrochureSection/Brochu
 import AssociateInstitution from "./Components/AssociateInstitution/AssociateInstitution";
 import Certification from "./Components/Certification/Certification";
 import Navbar1 from "./Components/Navbar/NavBar1";
-import Section2 from "./pages/InternshipPage/Section2/Section2";
 import Aboutuspage from "./pages/Aboutuspage/Aboutuspage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 const App = () => {
