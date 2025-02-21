@@ -166,6 +166,7 @@ const Navbar = ({ user, setUser }) => {
             //   </Link>
             // </div>
 
+            <Link to="/kodebumps">
             <div className="butt text-white rounded-full ">
               <span></span>
               <span></span>
@@ -173,6 +174,7 @@ const Navbar = ({ user, setUser }) => {
               <span></span>
               <span className="fade-in-out">{text}</span>
             </div>
+            </Link>
           )}
 </div>
         </div>

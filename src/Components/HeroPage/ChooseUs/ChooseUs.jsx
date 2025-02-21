@@ -24,9 +24,9 @@ const ChooseUs = () => {
       </div>
 
       <div className="px-8 mt-10   flex justify-between">
-        <div className="w-[500px]    flex items-end text-start">
+        <div className="w-[500px]    flex items-center text-start">
          <div>
-         <p className=" text-xl tracking-wide ">
+         <p className=" text-lg tracking-wide ">
             At Kodevortex, our mission is to bridge the gap between academic
             learning and industry needs. We believe in empowering students and
             professionals with the right skills to succeed in today’s
@@ -36,7 +36,7 @@ const ChooseUs = () => {
 
 
           </p>
-          <p className="text-xl tracking-wide">            We understand that every learner has unique goals and aspirations. That’s why we offer personalized guidance to help you navigate your career path and achieve your dreams. From foundational skills to advanced technologies, our comprehensive curriculum ensures that you’re prepared to tackle real-world challenges with confidence.
+          <p className="text-lg tracking-wide">            We understand that every learner has unique goals and aspirations. That’s why we offer personalized guidance to help you navigate your career path and achieve your dreams. From foundational skills to advanced technologies, our comprehensive curriculum ensures that you’re prepared to tackle real-world challenges with confidence.
           </p>
          </div>
         </div>

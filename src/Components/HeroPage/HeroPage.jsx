@@ -53,10 +53,10 @@ function HeroPage() {
         </div>
       </div>
       <div className=" ">
-        <Slider {...sliderSettings} className="row my-16 w-[80%] h-[150px] pr-12 overflow-hidden horizontal-band mx-auto   ">
+        <Slider {...sliderSettings} className="row my-16 border w-[80%] h-[150px] pr-12 overflow-hidden horizontal-band mx-auto   ">
           {quotes.map((quote, index) => (
             <div key={index} className="text-center  w-[75%] h-[150px]   text-lg pr-12 font-medium flex items-center justify-center mt-4 text-white py-4">
-              <p className="text-3xl px-12 font-serif">“{quote.text}”</p>
+              <p className="text-4xl px-12 italic ">“{quote.text}”</p>
               <p className="text-xl mt-2 text-end font-semibold">- {quote.author}</p>
             </div>
           ))}

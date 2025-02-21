@@ -2,36 +2,20 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Footer from "./Components/Footer/Footer";
-import Training from "./Components/Training/Training";
-import ServicesSection from "./Components/ServicesSection/ServicesSection";
 import Navbar from "./Components/Navbar/Navbar";
-import HeroPage from "./Components/HeroPage/HeroPage";
-import AboutUsSectioon from "./Components/AboutUsSection/AboutUsSection";
 import { Routes, Route, Outlet } from "react-router-dom";
 import TrainingPage from "./pages/TrainingPage/TrainingPage";
-import ServicePage from "./pages/ServicePage/ServicePage";
-import OurTeam from "./Components/OurTeam/OurTeam";
-import MainMemberPage from "./pages/MemberPage/MainMemberPage";
 import LoginPage from "../src/AuthenticationPages/LoginPage/LoginPage";
 import Register from "../src/AuthenticationPages/Register/Register";
 import Otp from "../src/AuthenticationPages/Otp/Otp";
 import { Toaster } from "react-hot-toast";
-import FormPage from "./pages/FormPage/FormPage";
 import InternshipPage from "./pages/InternshipPage/InternshipPage";
-import CoursePage from "./pages/CoursePage/CoursePage";
-import ChooseUs from "./Components/HeroPage/ChooseUs/ChooseUs";
-import SuccessStories from "./Components/SuccessStories/SuccessStories";
-import FAQs from "./Components/FAQs/FAQs";
-import ContactUs from "./Components/ContactUs/ContactUs";
-import CourseWeOffer from "./Components/CourseWeOffer/CourseWeOffer";
-import TrainingOffer from "./Components/Training/TrainingOffer/TrainingOffer";
-import ServiceSecondSection from "./Components/ServicesSection/ServiceSecondSection/ServiceSecondSection";
-import BrochureSection from "./Components/ServicesSection/BrochureSection/BrochureSection";
-import AssociateInstitution from "./Components/AssociateInstitution/AssociateInstitution";
-import Certification from "./Components/Certification/Certification";
 import Navbar1 from "./Components/Navbar/NavBar1";
 import Aboutuspage from "./pages/Aboutuspage/Aboutuspage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
+import KodeBumps from "./pages/KodeBumps/KodeBumps";
+import HomePage from "./pages/HomePage/HomePage";
+
 const App = () => {
   const [user, setUser] = useState();
 
@@ -71,43 +55,20 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+
+            <Route path="/training" element={<TrainingPage />} />
             <Route
-              index
+              path="/internship"
               element={
                 <>
-                    <HeroPage />
-                  <div className="px-[10%]">
-                    <TrainingOffer />
-
-                    <CourseWeOffer />
-                  </div>
-
-                  <ChooseUs />
-
-                  <div className="px-[10%]">
-                    <Training />
-                    {/* <ServicesSection /> */}
-                    <ServiceSecondSection />
-                    <BrochureSection />
-                    <Certification />
-                    <AssociateInstitution />
-                  </div>
-                  <SuccessStories />
-
-                  {/* <AboutUsSectioon /> */}
-                  <OurTeam />
-                  {/* <FormPage /> */}
-                  <FAQs />
-                  <ContactUs />
+                  <InternshipPage />
                 </>
               }
             />
-
-            <Route path="/training" element={<TrainingPage />} />
-            <Route path="/service" element={<ServicePage />} />
-            <Route path="/internship" element={<><InternshipPage /></> } />
             <Route path="/about-us" element={<Aboutuspage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
+            <Route path="/kodebumps" element={<KodeBumps />} />
           </Route>
           <Route
             path="/login"
