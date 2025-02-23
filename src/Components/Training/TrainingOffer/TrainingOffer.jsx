@@ -1,102 +1,277 @@
 import "./TrainingOffer.css";
 import { useState } from "react";
-import { FaBrain } from "react-icons/fa";
+import {
+  FaPython,
+  FaJava,
+  FaCode,
+  FaDatabase,
+  FaCaretDown,
+} from "react-icons/fa";
+import { motion } from "framer-motion";
+
+// Outer section variants (no tilt)
+const sectionVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 1, ease: "easeOut" },
+  },
+};
+
+// Variants for each column container to stagger its children
+const columnVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+// New box entrance variants for each column
+const leftBoxVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+
+const rightBoxVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+
+// Variant for the heading (slide in from left)
+const headingVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+// Variant for the icons container (fade & scale)
+const iconsVariants = {
+  hidden: { opacity: 0, scale: 0.5 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+// Variant for the details card (fade & slide up)
+const detailsVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
+// Variant for each list item inside details (slide in from right)
+const listItemVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
 
 const TrainingOffer = () => {
-  const features = [
-    "Tech Training – Hands-on training in Python, ML, Java, MERN Stack, and more.",
-    "DSA Preparation – 6th-semester LeetCode-based problem-solving sessions.",
-    "Aptitude & Soft Skills – 7th-semester training in aptitude, GD, and communication.",
-    "Core Subjects – Semester-wise coverage of CN, DBMS, OS, and more.",
-    "Mock Interviews – Realistic technical and HR interview simulations.",
-  ];
-  const features1 = [
-    " Tech Training – Career-aligned hands-on learning in Python, ML, Java, and more.",
-    "DSA Preparation – Structured LeetCode-based coding practice.",
-    "Aptitude & Soft Skills – Training in aptitude, GD, and communication.",
-    "Core Subjects – In-depth revision of CN, DBMS, OS, etc.",
-    "Mock Interviews – Simulated technical and HR interviews for job readiness.",
+  // Data for ALGOCHARYA column (4 items)
+  const trainingData1 = [
+    {
+      category: "Tech Training",
+      details: [
+        "Hands-on training in Python, ML, and Java",
+        "MERN Stack development projects",
+        "Industry-standard tools",
+      ],
+    },
+    {
+      category: "DSA Preparation",
+      details: [
+        "Structured LeetCode sessions",
+        "Algorithm & data structure challenges",
+        "Competitive programming tips",
+      ],
+    },
+    {
+      category: "Aptitude & Soft Skills",
+      details: [
+        "Aptitude tests and exercises",
+        "Group discussion practice",
+        "Effective communication training",
+      ],
+    },
+    {
+      category: "Core Subjects",
+      details: [
+        "In-depth revision of CN, DBMS, and OS",
+        "Semester-wise curriculum insights",
+        "Practical lab sessions",
+      ],
+    },
   ];
 
+  // Data for Lakshyarithm column (4 items)
+  const trainingData2 = [
+    {
+      category: "Tech Training",
+      details: [
+        "Career-aligned learning in Python, ML, and Java",
+        "Real-world project work",
+        "Advanced development frameworks",
+      ],
+    },
+    {
+      category: "DSA Preparation",
+      details: [
+        "Structured LeetCode practice",
+        "In-depth algorithm analysis",
+        "Competitive coding challenges",
+      ],
+    },
+    {
+      category: "Aptitude & Soft Skills",
+      details: [
+        "Focused aptitude training",
+        "GD & communication enhancement",
+        "Presentation & interpersonal skills",
+      ],
+    },
+    {
+      category: "Core Subjects",
+      details: [
+        "Comprehensive revision of CN, DBMS, OS",
+        "Concept clarity sessions",
+        "Problem-solving workshops",
+      ],
+    },
+  ];
+
+  // Icons for the first set (4 items)
+  const iconsSet1 = [
+    <FaPython key="1" />,
+    <FaJava key="2" />,
+    <FaCode key="3" />,
+    <FaDatabase key="4" />,
+  ];
+
+  // Icons for the second set (4 items)
+  const iconsSet2 = [
+    <FaPython key="5" />,
+    <FaJava key="6" />,
+    <FaCode key="7" />,
+    <FaDatabase key="8" />,
+  ];
+
+  // States to track hovered circle for each column.
+  // When no circle is hovered, default to index 0.
   const [hoverIndex, setHoverIndex] = useState(null);
   const [hoverIndex1, setHoverIndex1] = useState(null);
-  return (
-    <div className="mt-80 ">
-      <p className="text-white pb-16 text-font text-2xl tracking-wider">
-        Trainings we offer
-      </p>
-      <div className="flex space-x-10 h-[50%] justify-center ">
-      <div className={`w-[40%] flex flex-col items-center rounded-3xl bg-algo-col p-6 text-white transition-all duration-500 ${hoverIndex !== null ? "h-[60vh]" : "h-[40vh]"}`}>
-  <h1 className="text-2xl font-bold mb-6">
-    ALGOCHARYA – Technology & Placement Training
-  </h1>
-  <div className="relative flex">
-    {Array(5)
-      .fill()
-      .map((_, index) => (
-        <div key={index} className="flex flex-col items-center">
-          <div
-            className={`w-24 h-24 flex justify-center items-center text-3xl cursor-pointer mt-6 rounded-full bg-[#181739] transition-all border border-white duration-500 ${
-              hoverIndex === index ? "border-black scale-110 bg-[#252447]" : ""
-            }`}
-            style={{ marginLeft: index === 0 ? "0" : "-20px" }}
-            onMouseEnter={() => setHoverIndex(index)}
-            onMouseLeave={() => setHoverIndex(null)}
-          > {index+1} </div>
-          {hoverIndex === index && (
-            <div className="h-12 w-0.5 mt-1 mr-5 bg-black animate-pulse"></div>
-          )}
-        </div>
-      ))}
-  </div>
-  {hoverIndex !== null && (
-    <div className="p-2 mb-10 text-center">
-      <p className="text-xl border-l-2 bg-[#181739] px-4 py-10 rounded-xl border-white pl-2">
-        {features[hoverIndex]}
-      </p>
-    </div>
-  )}
-</div>
 
-        <div
-          className={`flex flex-col items-center rounded-3xl bg-algo-col p-6 text-white transition-all duration-500 ${
-            hoverIndex1 !== null ? "h-[60vh] w-[40%]" : "h-[40vh] w-[40%]"
-          }`}
+  const currentIndex1 = hoverIndex !== null ? hoverIndex : 0;
+  const currentIndex2 = hoverIndex1 !== null ? hoverIndex1 : 0;
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }} // Re-trigger on re-entry
+      variants={sectionVariants}
+      className="mt-24 px-4"
+    >
+      <p className="text-[#CF9274] font-mono text-5xl font-semibold pb-16 text-font  tracking-wider text-center">
+        TRAININGS WE OFFER
+      </p>
+
+      <div className="flex flex-col md:flex-row md:space-x-10 justify-center items-center">
+        {/* ------------ FIRST COLUMN (Left Box) ------------ */}
+        <motion.div
+          variants={leftBoxVariants}
+          className="w-full md:w-[40%] flex flex-col items-center rounded-3xl bg-algo-col p-6 text-white transition-all duration-500 h-auto md:h-[70vh] mb-10 md:mb-0"
         >
-          <h1 className="text-2xl font-bold mb-6">
-            Lakshyarithm – Premium Career & Placement Program
-          </h1>
-          <div className="relative flex">
-            {Array(5)
-              .fill()
-              .map((_, index) => (
+          <motion.div variants={columnVariants}>
+            <motion.h1 variants={headingVariants} className="text-2xl font-bold mb-6 text-center">
+              ALGOCHARYA – Technology & Placement Training
+            </motion.h1>
+
+            <motion.div variants={iconsVariants} className="relative flex justify-center">
+              {trainingData1.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-24 h-24 flex justify-center items-center text-3xl flex justify-center items-center cursor-pointer mt-6 rounded-full bg-[#181739] transition-all border border-white duration-500 ${
-                      hoverIndex1 === index
-                        ? "border-black scale-110 bg-[#252447]"
-                        : ""
+                    className={`w-24 h-24 flex justify-center items-center text-3xl cursor-pointer mt-6 rounded-full bg-[#181739] transition-all duration-500 border border-white ${
+                      hoverIndex === index ? "scale-110 shadow-lg border-black" : ""
+                    }`}
+                    style={{ marginLeft: index === 0 ? "0" : "-20px" }}
+                    onMouseEnter={() => setHoverIndex(index)}
+                    onMouseLeave={() => setHoverIndex(null)}
+                  >
+                    {iconsSet1[index]}
+                  </div>
+                  {(hoverIndex === index ||
+                    (hoverIndex === null && index === 0)) && (
+                    <FaCaretDown className="text-white mt-2 animate-bounce" />
+                  )}
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div variants={detailsVariants} className="p-2 mt-4 text-center">
+              <div className="text-xl border-l-2 bg-[#181739] w-full md:w-[28rem] h-auto md:h-[14rem] px-10 py-4 rounded-xl border-white pl-10">
+                <h2 className="font-bold mb-2">
+                  {trainingData1[currentIndex1].category}
+                </h2>
+                <ul className="list-disc flex flex-col pt-3 space-y-3 list-inside text-left">
+                  {trainingData1[currentIndex1].details.map((point, idx) => (
+                    <motion.li key={idx} variants={listItemVariants}>
+                      {point}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* ------------ SECOND COLUMN (Right Box) ------------ */}
+        <motion.div
+          variants={rightBoxVariants}
+          className="w-full md:w-[40%] flex flex-col items-center rounded-3xl bg-algo-col p-6 text-white transition-all duration-500 h-auto md:h-[70vh]"
+        >
+          <motion.div variants={columnVariants}>
+            <motion.h1 variants={headingVariants} className="text-2xl font-bold mb-6 text-center">
+              Lakshyarithm – Premium Career & Placement Program
+            </motion.h1>
+
+            <motion.div variants={iconsVariants} className="relative flex justify-center">
+              {trainingData2.map((_, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <div
+                    className={`w-24 h-24 flex justify-center items-center text-3xl cursor-pointer mt-6 rounded-full bg-[#181739] transition-all duration-500 border border-white ${
+                      hoverIndex1 === index ? "scale-110 shadow-lg border-black" : ""
                     }`}
                     style={{ marginLeft: index === 0 ? "0" : "-20px" }}
                     onMouseEnter={() => setHoverIndex1(index)}
                     onMouseLeave={() => setHoverIndex1(null)}
-                  > {index+1}  </div>
-                  {hoverIndex1 === index && (
-                    <div className="h-12 w-0.5 mt-1 mr-5 bg-black animate-pulse"></div>
+                  >
+                    {iconsSet2[index]}
+                  </div>
+                  {(hoverIndex1 === index ||
+                    (hoverIndex1 === null && index === 0)) && (
+                    <FaCaretDown className="text-white mt-2 animate-bounce" />
                   )}
                 </div>
               ))}
-          </div>
-          {hoverIndex1 !== null && (
-            <div className="p-2 mb-10 text-center">
-              <p className="text-xl border-l-2 bg-[#181739] px-4 py-10 rounded-xl border-white pl-2">
-                {features1[hoverIndex1]}
-              </p>
-            </div>
-          )}
-        </div>
+            </motion.div>
+
+            <motion.div variants={detailsVariants} className="p-2 mt-4 text-center">
+              <div className="text-xl border-l-2 bg-[#181739] w-full md:w-[28rem] h-auto md:h-[14rem] px-10 py-4 rounded-xl border-white pl-10">
+                <h2 className="font-bold mb-2">
+                  {trainingData2[currentIndex2].category}
+                </h2>
+                <ul className="list-disc flex flex-col pt-3 space-y-3 list-inside text-left">
+                  {trainingData2[currentIndex2].details.map((point, idx) => (
+                    <motion.li key={idx} variants={listItemVariants}>
+                      {point}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,3 +2,7 @@
     background-color: #5D7284CC;
 }
 
+.slick-slide > div {
+    margin: 0 1rem; /* Adjust the margin as needed */
+  }
+  
