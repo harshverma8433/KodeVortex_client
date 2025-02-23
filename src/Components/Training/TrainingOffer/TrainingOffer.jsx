@@ -181,11 +181,11 @@ const TrainingOffer = () => {
           className="w-full md:w-[40%] flex flex-col items-center rounded-3xl bg-algo-col p-6 text-white transition-all duration-500 h-auto md:h-[70vh] mb-10 md:mb-0"
         >
           <motion.div variants={columnVariants}>
-            <motion.h1 variants={headingVariants} className="text-2xl font-bold mb-6 text-center">
+            <motion.h1 variants={headingVariants} className="text-2xl lg:px-0 px-28 font-bold mb-6 text-center">
               ALGOCHARYA – Technology & Placement Training
             </motion.h1>
 
-            <motion.div variants={iconsVariants} className="relative flex justify-center">
+            <motion.div variants={iconsVariants} className="relative flex  space-x-2 justify-center">
               {trainingData1.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
@@ -207,19 +207,19 @@ const TrainingOffer = () => {
             </motion.div>
 
             <motion.div variants={detailsVariants} className="p-2 mt-4 text-center">
-              <div className="text-xl border-l-2 bg-[#181739] w-full md:w-[28rem] h-auto md:h-[14rem] px-10 py-4 rounded-xl border-white pl-10">
-                <h2 className="font-bold mb-2">
-                  {trainingData1[currentIndex1].category}
-                </h2>
-                <ul className="list-disc flex flex-col pt-3 space-y-3 list-inside text-left">
-                  {trainingData1[currentIndex1].details.map((point, idx) => (
-                    <motion.li key={idx} variants={listItemVariants}>
-                      {point}
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+  <div className="text-xl border-l-2 bg-[#181739]  w-full md:w-[28rem] h-auto md:h-[14rem] lg:px-0 px-24 py-4 rounded-xl border-white">
+    <h2 className="font-bold mb-2">
+      {trainingData1[currentIndex1].category}
+    </h2>
+    <ul className="list-disc flex flex-col pt-3 space-y-1 md:space-y-3 list-inside ">
+      {trainingData1[currentIndex1].details.map((point, idx) => (
+        <motion.li key={idx} variants={listItemVariants}>
+          {point}
+        </motion.li>
+      ))}
+    </ul>
+  </div>
+</motion.div>
           </motion.div>
         </motion.div>
 
@@ -229,11 +229,11 @@ const TrainingOffer = () => {
           className="w-full md:w-[40%] flex flex-col items-center rounded-3xl bg-algo-col p-6 text-white transition-all duration-500 h-auto md:h-[70vh]"
         >
           <motion.div variants={columnVariants}>
-            <motion.h1 variants={headingVariants} className="text-2xl font-bold mb-6 text-center">
+            <motion.h1 variants={headingVariants} className="text-2xl lg:px-0 px-28 font-bold mb-6 text-center">
               Lakshyarithm – Premium Career & Placement Program
             </motion.h1>
 
-            <motion.div variants={iconsVariants} className="relative flex justify-center">
+            <motion.div variants={iconsVariants} className="relative flex space-x-2 justify-center">
               {trainingData2.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
@@ -254,12 +254,12 @@ const TrainingOffer = () => {
               ))}
             </motion.div>
 
-            <motion.div variants={detailsVariants} className="p-2 mt-4 text-center">
-              <div className="text-xl border-l-2 bg-[#181739] w-full md:w-[28rem] h-auto md:h-[14rem] px-10 py-4 rounded-xl border-white pl-10">
+            <motion.div variants={detailsVariants} className="p-2 mt-4   text-center">
+              <div className="text-xl border-l-2 bg-[#181739]  w-full md:w-[28rem] h-auto md:h-[14rem] lg:px-0 px-24 py-4 rounded-xl border-white ">
                 <h2 className="font-bold mb-2">
                   {trainingData2[currentIndex2].category}
                 </h2>
-                <ul className="list-disc flex flex-col pt-3 space-y-3 list-inside text-left">
+                <ul className="list-disc flex flex-col pt-3 space-y-1 md:space-y-3 list-inside ">
                   {trainingData2[currentIndex2].details.map((point, idx) => (
                     <motion.li key={idx} variants={listItemVariants}>
                       {point}
