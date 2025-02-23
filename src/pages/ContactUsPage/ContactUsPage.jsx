@@ -89,7 +89,7 @@ const ContactUsPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row mt-24 mb-36 w-full px-[10%] space-y-8 md:space-y-0">
+    <div className="flex flex-col md:flex-row mt-16 mb-36 w-full px-[10%] space-y-8 md:space-y-0">
       {/* Left Half (Contact Info) */}
       <motion.div
         className="w-full md:w-[45%] p-6 bg-black"
