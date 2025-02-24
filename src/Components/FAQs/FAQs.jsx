@@ -87,16 +87,19 @@ const FAQs = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.3 });
 
   return (
-    <div className="bg-black py-16 mt-24 px-4">
+    <div className="bg-black py-12 md:py-16 mt-4 px-4 md:px-8">
+      {/* Heading */}
       <motion.h2
-        className="text-[#CF9274] font-mono text-4xl font-semibold text-center mb-16"
+        className="text-[#CF9274] font-mono text-3xl md:text-4xl font-semibold text-center mb-8 md:mb-16"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
       >
         Frequently Asked Questions (FAQs)
       </motion.h2>
+
+      {/* FAQ Items */}
       <motion.div
-        className="max-w-3xl mx-auto space-y-6"
+        className="max-w-3xl mx-auto space-y-4 md:space-y-6"
         ref={ref}
         variants={containerVariants}
         initial="hidden"
@@ -107,15 +110,15 @@ const FAQs = () => {
           <motion.div
             key={index}
             onClick={() => toggleFAQ(index)}
-            className="bg-white cursor-pointer rounded-3xl p-4"
+            className="bg-white cursor-pointer rounded-2xl md:rounded-3xl p-4 md:p-6"
             variants={faqItemVariants}
             layout
           >
             {/* Question */}
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <span className="text-font text-xl mr-4">{index + 1}.</span>
-                <p className="text-font1 text-xl tracking-wider">
+                <span className="text-font text-lg md:text-xl mr-4">{index + 1}.</span>
+                <p className="text-font1 text-lg md:text-xl tracking-wider">
                   {faq.question}
                 </p>
               </div>
@@ -127,7 +130,7 @@ const FAQs = () => {
             <AnimatePresence>
               {openIndex === index && (
                 <motion.div
-                  className="mt-3 text-font2 text-lg leading-relaxed overflow-hidden"
+                  className="mt-3 text-font2 text-base md:text-lg leading-relaxed overflow-hidden"
                   variants={answerVariants}
                   initial="hidden"
                   animate="visible"

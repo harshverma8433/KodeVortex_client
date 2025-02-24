@@ -7,3 +7,8 @@
     font-style: normal;
 
 }
+
+
+.bg-grad-wd{
+    background: linear-gradient(90deg , #9CC6C9 0% , #424097 100%);
+}

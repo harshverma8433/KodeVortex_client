@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "react-slick"; // The carousel library
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
@@ -47,11 +47,9 @@ const projects = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_wsNlUYaV8Ki0hdLYJksiWA_kkiorXAvAA&s",
   },
-  // Add more items as needed...
 ];
 
 const NewComp = () => {
-  // Carousel settings with custom dots
   const settings = {
     dots: true,
     infinite: true,
@@ -78,7 +76,7 @@ const NewComp = () => {
   };
 
   return (
-    <div className="px-6 mb-36">
+    <div className="px-4 md:px-6 mb-24 md:mb-36">
       <MotionSlider settings={settings} projects={projects} />
     </div>
   );
@@ -94,7 +92,6 @@ const sliderVariants = {
   },
 };
 
-// A wrapper that animates the slider container using Framer Motion
 const MotionSlider = ({ settings, projects }) => {
   return (
     <motion.div
@@ -106,24 +103,24 @@ const MotionSlider = ({ settings, projects }) => {
       <Slider {...settings}>
         {projects.map((project, index) => (
           <div key={index}>
-            <div className="bg-slate-900 flex flex-col justify-between text-white w-[21rem] h-[35rem] rounded-xl shadow-lg p-6 relative mx-2">
+            <div className="bg-slate-900 flex flex-col justify-between text-white w-full md:w-[21rem] h-[30rem] md:h-[35rem] rounded-xl shadow-lg p-4 md:p-6 relative mx-2">
               <div>
                 <div className="flex justify-center">
                   <span className="absolute top-4 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
                     {project.label}
                   </span>
                 </div>
-                <div className="flex justify-center my-12">
+                <div className="flex justify-center my-8 md:my-12">
                   <img
                     src={project.image}
                     alt={project.heading}
-                    className="w-44 h-44 object-contain"
+                    className="w-32 h-32 md:w-44 md:h-44 object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-center">
+                <h3 className="text-lg md:text-xl font-bold mb-2 text-center">
                   {project.heading}
                 </h3>
-                <p className="text-lg py-3 text-gray-200 text-center mb-4">
+                <p className="text-base md:text-lg py-3 text-gray-200 text-center mb-4">
                   {project.description}
                 </p>
               </div>

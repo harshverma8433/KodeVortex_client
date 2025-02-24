@@ -1,9 +1,42 @@
-import React from "react";
 import { motion } from "framer-motion";
-import WhyDifferent from "../WhyDifferent/WhyDifferent";
 import BoxSection from "./BoxSection/BoxSection";
 import "./ChooseUs.css";
 import chooseus from "./chooseus.jpg";
+
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: { 
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0,
+      duration: 1,
+    },
+  },
+};
+
+const headingVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.2 } 
+  },
+};
+
+const circleVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 100, damping: 10 } 
+  },
+  hover: {
+    scale: 1.1,
+    rotate: 15,
+    transition: { duration: 0.3 },
+  },
+};
 
 const ChooseUs = () => {
   const chooseuscontent = [
@@ -15,11 +48,11 @@ const ChooseUs = () => {
 
   // Define animation variants
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 10, y: 50 },
     visible: { 
       opacity: 1, 
-      y: 0, 
-      transition: { duration: 1, ease: "easeOut", staggerChildren: 0.5 },
+      y: 5, 
+      transition: { duration: 1, ease: "easeOut", staggerChildren:  0},
     },
   };
 
@@ -41,14 +74,14 @@ const ChooseUs = () => {
   return (
     <>
       <motion.div
-        className="text-white px-[10%] rounded-t-3xl chooseus-bg-col py-12"
+        className="text-white px-4 md:px-[10%] rounded-t-3xl chooseus-bg-col py-8 md:py-2"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: false, amount: 0.1 }}
       >
         <motion.h1 
-          className="text-[#CF9274] font-mono text-5xl font-semibold tracking-wide py-12 text-center"
+          className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold tracking-wide py-8 md:py-12 text-center"
           variants={fadeInVariants}
         >
           WHY YOU SHOULD CHOOSE US
@@ -56,7 +89,7 @@ const ChooseUs = () => {
 
         {/* Grid of BoxSections */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-y-10 pl-10"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-y-10 px-4 md:pl-10"
           variants={containerVariants}
         >
           {chooseuscontent.map((content, index) => (
@@ -68,7 +101,7 @@ const ChooseUs = () => {
 
         {/* Main content with text and image */}
         <motion.div
-          className="px-8 mt-10 flex flex-col lg:flex-row justify-between items-center"
+          className="px-4 md:px-8 mt-8 md:mt-10 flex flex-col lg:flex-row justify-between items-center gap-8"
           variants={containerVariants}
         >
           <motion.div
@@ -76,13 +109,13 @@ const ChooseUs = () => {
             variants={slideInLeftVariants}
           >
             <div>
-              <p className="text-lg tracking-wide">
+              <p className="text-base md:text-lg tracking-wide">
                 At Kodevortex, our mission is to bridge the gap between academic learning and industry needs.
                 We believe in empowering students and professionals with the right skills to succeed in today’s competitive
                 technology-driven world. Our training programs are designed to provide hands-on experience, making learning
                 interactive and effective.
               </p>
-              <p className="text-lg tracking-wide mt-4">
+              <p className="text-base md:text-lg tracking-wide mt-4">
                 We understand that every learner has unique goals and aspirations. That’s why we offer personalized guidance to help 
                 you navigate your career path and achieve your dreams. From foundational skills to advanced technologies, our comprehensive 
                 curriculum ensures that you’re prepared to tackle real-world challenges with confidence.
@@ -90,7 +123,7 @@ const ChooseUs = () => {
             </div>
           </motion.div>
           <motion.div
-            className="bg-[#54677B] w-full lg:w-[600px] h-[410px] rounded-3xl mt-8 lg:mt-0"
+            className="bg-[#54677B] w-full lg:w-[600px] h-[300px] md:h-[410px] rounded-3xl"
             variants={slideInRightVariants}
           >
             <img
@@ -101,8 +134,8 @@ const ChooseUs = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div className="mt-6 mx-[2%]" variants={fadeInVariants}>
-          <h1 className="py-10 text-xl text-start">
+        <motion.div className="mt-6 mx-4 md:mx-[2%]" variants={fadeInVariants}>
+          <h1 className="py-8 md:py-10 text-base md:text-xl text-start">
             Joining Kodevortex means more than just attending classes. It’s about becoming part of a growing community 
             of innovators and problem-solvers. Whether you’re a student starting your career journey or a professional 
             looking to upskill, we’re here to guide and support you every step of the way.
@@ -110,7 +143,32 @@ const ChooseUs = () => {
         </motion.div>
       </motion.div>
 
-      <WhyDifferent />
+      <motion.div
+        className="text-white  md:mt-10 flex flex-col items-center px-4"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        <motion.h1
+          className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold pb-12 md:pb-24 tracking-wide text-center"
+          variants={headingVariants}
+        >
+          WHAT MAKE US DIFFERENT
+        </motion.h1>
+        <div className="flex flex-wrap justify-center gap-8 md:gap-24">
+          {Array(4)
+            .fill()
+            .map((_, index) => (
+              <motion.div
+                key={index}
+                className="w-24 h-24 md:w-40 md:h-40 bg-grad-wd rounded-full"
+                variants={circleVariants}
+                whileHover="hover"
+              ></motion.div>
+            ))}
+        </div>
+      </motion.div>
     </>
   );
 };

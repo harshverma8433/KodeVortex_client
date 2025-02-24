@@ -25,10 +25,10 @@ const OurTeam = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    centerPadding:"50px",
     arrows: false,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
       { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
@@ -44,34 +44,44 @@ const OurTeam = () => {
       scale: 1,
       transition: { duration: 0.8, ease: "easeOut" },
     },
-    hover: { scale: 1.1, transition: { duration: 0.3 } },
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
   };
 
   return (
-    <div className="">
-      <h1 className="text-[#CF9274] font-mono text-5xl font-semibold text-center  tracking-wide text-font py-16">
+    <div className="bg-black  py-12 md:py-20">
+      {/* Heading */}
+      <h1 className="text-[#CF9274] font-mono text-3xl md:text-4xl lg:text-5xl font-semibold text-center tracking-wide py-8 md:py-16">
         OUR TEAM
       </h1>
-      <div className="w-[70%] mx-auto" ref={ref}>
-        <div className="px-10">
+
+      {/* Carousel */}
+      <div className="w-full md:w-[100%]  lg:w-[100%] xl:w-[80%] mx-auto" ref={ref}>
+        <div className="px-4 md:px-10">
           <Slider {...settings}>
             {teams.map((member, index) => (
               <motion.div
                 key={index}
-                className="rounded-xl h-96 flex flex-col items-center"
+                className="px-2 md:px-4 w-full "
                 variants={cardVariants}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
                 whileHover="hover"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover rounded-3xl mb-4"
-                />
-                <p className="text-white text-lg font-semibold">
-                  {member.name}, {member.role}
-                </p>
+                <div className="rounded-xl  h-[35rem] md:h-[30rem] flex flex-col items-center  shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-slate-900">
+                  {/* Image */}
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-[35rem] md:h-[30rem]  rounded-t-3xl"
+                  />
+                  {/* Name and Role */}
+                </div>
+                  <div className="w-full p-2 text-center">
+                    <p className="text-white text-sm md:text-md font-semibold">
+                      {member.name} ,  {member.role}
+                    </p>
+
+                  </div>
               </motion.div>
             ))}
           </Slider>

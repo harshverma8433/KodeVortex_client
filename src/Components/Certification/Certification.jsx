@@ -41,24 +41,31 @@ const Certification = () => {
   return (
     <motion.div 
       ref={ref}
-      className="bg-gradient-to-tl from-[#54677B] to-[#3299AA] flex flex-col md:flex-row px-6 md:px-20 py-16"
+      className="bg-gradient-to-tl from-[#54677B] to-[#3299AA] flex mt-28 flex-col md:flex-row px-4 md:px-20 py-12 md:py-16"
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       viewport={{ once: false, amount: 0.3 }}
     >
+      {/* Image Section */}
       <motion.div 
         className="w-full md:w-1/2 flex justify-center items-center"
         variants={imageVariants}
         whileHover="hover"
       >
-        <img src={image} className="w-4/5" alt="certificate.png" />
+        <img 
+          src={image} 
+          className="w-full max-w-[400px] md:w-4/5" 
+          alt="certificate.png" 
+        />
       </motion.div>
+
+      {/* Text Section */}
       <motion.div 
         className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0"
         variants={textVariants}
       >
-        <h1 className="text-3xl md:text-5xl text-white font-bold text-center">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl text-white font-bold text-center">
           Build your career and achieve certificate to enhance your resume
         </h1>
       </motion.div>

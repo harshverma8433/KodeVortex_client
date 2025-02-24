@@ -44,17 +44,17 @@ const Training = () => {
 
   return (
     <motion.div
-      className="mt-32"
+      className="mt-16 md:mt-32 px-4 md:px-8"
       ref={ref}
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       viewport={{ once: false, amount: 0.3 }}
     >
-      <h1 className="text-[#CF9274] font-mono text-5xl font-semibold text-center txt ">
+      <h1 className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold text-center">
         TRAININGS
       </h1>
-      <div className="h-[450px] mt-10">
+      <div className="h-[400px] md:h-[450px] mt-8 md:mt-10">
         <Carousel
           responsive={responsive}
           infinite
@@ -79,7 +79,7 @@ const Training = () => {
                   />
                 </div>
                 <div className="training-back">
-                  <h2 className="text-white text-xl font-bold">{service.name}</h2>
+                  <h2 className="text-white text-lg md:text-xl font-bold">{service.name}</h2>
                 </div>
               </div>
             </motion.div>

@@ -35,7 +35,10 @@ const AssociateInstitution = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
+
     autoplaySpeed: 2000,
+    // centerPadding:'10px',
+    centerMode : true,
     arrows: false,
     responsive: [
       {
@@ -79,18 +82,21 @@ const AssociateInstitution = () => {
 
   return (
     <motion.div
-      className="bg-black text-center py-20"
+      className="bg-black text-center py-12 md:py-20"
       ref={ref}
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       viewport={{ once: false, amount: 0.3 }}
     >
-      <h1 className="text-font  text-[#CF9274] font-mono text-5xl font-semibold pb-28">
+      {/* Heading */}
+      <h1 className="text-[#CF9274] font-mono text-3xl md:text-4xl lg:text-5xl font-semibold pb-12 md:pb-28">
         Associated Institution
       </h1>
+
+      {/* Carousel */}
       <motion.div variants={containerVariants}>
-        <Slider {...settings} className="px-10">
+        <Slider {...settings} className="px-4 md:px-10">
           {AssociateInstitutionContent.map((image, index) => (
             <motion.div
               key={index}
@@ -101,7 +107,7 @@ const AssociateInstitution = () => {
               <img
                 src={image}
                 alt={`Institution-${index + 1}`}
-                className="w-40 h-36 rounded-3xl"
+                className="w-32 h-28 md:w-40 md:h-36 rounded-3xl"
               />
             </motion.div>
           ))}

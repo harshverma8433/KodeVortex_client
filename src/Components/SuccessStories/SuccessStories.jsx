@@ -13,13 +13,14 @@ const SuccessStories = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 3000, 
+    // centerMode:true,
     arrows: false,
   };
 
   const stories = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in  ",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit .",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum",
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper scelerisque mi, in malesuada felis malesuada vel. Lorem ipsum ",
   ];
 
@@ -57,40 +58,47 @@ const SuccessStories = () => {
 
   return (
     <motion.div 
-      className="bg-[#181739] pb-24"
+      className="bg-[#181739] pb-12 md:pb-24"
       ref={ref}
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       viewport={{ once: false, amount: 0.3 }}
     >
+      {/* Header */}
       <motion.h1 
-        className="text-[#CF9274] font-mono text-5xl font-semibold tracking-wide pb-24 pt-8 text-font "
+        className="text-[#CF9274] font-mono text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide pb-12 md:pb-24 pt-8 text-center"
         variants={headerVariants}
       >
         Success Stories
       </motion.h1>
-      <div className="flex flex-col lg:flex-row justify-center items-center relative">
+
+      {/* Main Content */}
+      <div className="flex flex-col lg:flex-row justify-center items-center relative px-4 md:px-8">
+        {/* Slider Container */}
         <motion.div 
-          className="relative left-12 bg-[#D9D9D9] flex justify-center items-center h-96 w-full lg:w-[35%] mb-8 lg:mb-0"
+          className="relative bg-[#D9D9D9] flex justify-center items-center h-64 md:h-96 w-full lg:w-[35%] mb-8 lg:mb-0"
           variants={sliderVariants}
         >
           {/* Border Lines */}
-          <div className="absolute top-6 left-2 w-full lg:w-[30rem] h-1 bg-black"></div>
-          <div className="absolute top-2 left-6 h-[90%] w-1 bg-black"></div>
-          <div className="absolute bottom-6 right-2 w-full lg:w-[30rem] h-1 bg-black"></div>
-          <div className="absolute bottom-2 right-6 h-[90%] w-1 bg-black"></div>
+          <div className="absolute top-4 md:top-6 left-2 w-full lg:w-[80%] h-1 bg-black"></div>
+          <div className="absolute top-2 left-4 md:left-6 h-[90%] w-1 bg-black"></div>
+          <div className="absolute bottom-4 md:bottom-6 right-2 w-full lg:w-[80%] h-1 bg-black"></div>
+          <div className="absolute bottom-2 right-4 md:right-6 h-[90%] w-1 bg-black"></div>
 
-          <Slider className="w-[25rem] pr-10 flex items-center" {...settings}>
+          {/* Slider */}
+          <Slider className="w-full md:w-[25rem]  px-6 flex  justify-center items-center" {...settings}>
             {stories.map((story, index) => (
-              <p key={index} className="text-center text-gray-700 text-lg px-4">
+              <p key={index} className="text-center text-gray-700 text-sm md:text-lg px-4">
                 {story}
               </p>
             ))}
           </Slider>
         </motion.div>
+
+        {/* Side Graphic */}
         <motion.div 
-          className="w-full lg:w-96 h-[500px] bg-grad-certificate"
+          className="w-full lg:w-96 h-64 md:h-[500px] bg-grad-certificate"
           variants={sideVariants}
           whileHover="hover"
         />
