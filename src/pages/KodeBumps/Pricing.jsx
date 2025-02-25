@@ -83,21 +83,21 @@ export default function Pricing() {
           >
             <div className="absolute inset-0 flex">
               <div
-                className={`w-1/2 h-full rounded-full transition-all duration-300 ${
+                className={`w-1/2 h-full  rounded-full transition-all duration-300 ${
                   isMonthly ? "bg-red-500" : "bg-red-500 translate-x-full"
                 }`}
               />
             </div>
-            <div className="flex w-full border-2 rounded-full border-red-500 justify-between text-lg font-semibold relative z-10">
+            <div className="flex space-x-24 px-5    border-2 rounded-full border-red-500 justify-between text-lg font-semibold relative z-10">
               <span
-                className={`flex-1 text-center py-3 transition-colors duration-300 ${
+                className={` text-center py-3 transition-colors duration-300 ${
                   isMonthly ? "text-white" : "text-red-500"
                 }`}
               >
                 Monthly
               </span>
               <span
-                className={`flex-1 text-center py-3 transition-colors duration-300 ${
+                className={` text-center py-3 transition-colors duration-300 ${
                   isMonthly ? "text-red-500" : "text-white"
                 }`}
               >
