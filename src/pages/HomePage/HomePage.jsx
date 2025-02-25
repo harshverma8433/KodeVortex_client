@@ -14,8 +14,8 @@ const HomePage = () => {
   return (
     <>
     <HeroPage />
-  <div className="px-[10%]">
     <TrainingOffer />
+  <div className="px-[10%]">
 
     <CourseWeOffer />
   </div>
