@@ -119,7 +119,7 @@ const CourseWeOffer = () => {
         TECHNOLOGIES WE HAVE
       </h2>
       <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 place-items-center"
+        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-48 gap-4 md:gap-6 place-items-center"
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"
