@@ -182,7 +182,7 @@ const TrainingOffer = () => {
         {/* ------------ FIRST COLUMN (Left Box) ------------ */}
         <motion.div
           variants={leftBoxVariants}
-          className="w-full md:w-[40%] lg:w-[30%] flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[80vh] mb-10 md:mb-0"
+          className="w-full md:w-[40%] lg:w-[32%]  flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[80vh] mb-10 md:mb-0"
         >
           {/* Make the inner container a flex column that fills the height */}
           <motion.div variants={columnVariants} className="flex flex-col h-full">
@@ -243,7 +243,7 @@ const TrainingOffer = () => {
         {/* ------------ SECOND COLUMN (Right Box) ------------ */}
         <motion.div
           variants={rightBoxVariants}
-          className="w-full md:w-[40%] lg:w-[30%] flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[80vh]"
+          className="w-full md:w-[40%] lg:w-[32%] flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[80vh]"
         >
           <motion.div variants={columnVariants} className="flex flex-col h-full">
             <motion.h1
