@@ -66,11 +66,11 @@ const Navbar = ({ user, setUser }) => {
   };
 
   return (
-    <nav className="flex w-full justify-between px-[4%]  pt-4 items-center font-sans">
+    <nav className="flex w-full justify-between px-[4%] mb-4 pt-4 items-center font-sans">
       <div className="flex items-center ">
         <Link to="/" className="flex h-24 items-center">
           <div className="flex items-center ">
-            <img src={logo} alt="logo.png" className="w-[60%] h-20" />
+            <img src={logo} alt="logo.png" className="w-[55%] h-[5%]" />
             <h1 className="kodev-font ">
               <span className="kode-col text-xl ">KODE</span>
               <span className="text-white text-xl ">VORTEX</span>
