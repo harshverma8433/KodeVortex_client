@@ -32,11 +32,11 @@ const testimonials = [
 
 const ServiceSecondSection = () => {
   const items = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Expertise in Current and Emerging Technologies:",
+    "Robust Curriculum and Experienced Instructors/Developers",
+    "Strong Client and Community Engagement:",
+    "Emphasis on Building a Sustainable Startup Ecosystem:",
+    "Skills Gap Analysis and Targeted Training Recommendations:",
   ];
 
   // Equally spaced angles for 5 items (0°, 72°, 144°, 216°, 288°)

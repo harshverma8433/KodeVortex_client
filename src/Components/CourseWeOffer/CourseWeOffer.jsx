@@ -1,58 +1,117 @@
 import { useState, useEffect } from "react";
+import cpp from "./cpp.jpeg";
 import csharp from "./csharp.jpg";
+import cybersecurity from "./cybersecurity.jpg"
+import genai from "./genai.jpg";
+import git from "./git.jpg";
 import go from "./go.jpg";
 import java from "./java.jpg";
 import js from "./js.jpg";
-import git from "./git.jpg";
+import lanchain from "./lanchain.jpg"
+import mern from "./mern.jpg"
+import mlops from "./mlops.jpg"
+import php  from "./php.png"
+import powerbi from "./powerbi.jpg"
 import github from "./github.jpeg";
 import python from "./python.jpg";
-import cpp from "./cpp.jpeg";
+import ruby from "./ruby.jpg"
+import tensorflow from "./tensorflow.jpg"
+import aws from "./aws.jpg"
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import route_opt from "./project_images/route_opt.png"
+import modelops from "./project_images/modelops.png"
+import fraud_d from "./project_images/fraud_d.png"
+import ai_optimization from "./project_images/ai_optimization.png"
+import vehile from "./project_images/vehile.png"
+import editing_doc from "./project_images/editing_doc.png"
+import video_stream_platf from "./project_images/video_stream_platf.png"
+import real_time_booking from "./project_images/real_time_booking.png"
+import "./CourseWeOffer.css";
 
 const projects = [
   {
     label: "Guided Project",
-    heading: "Work like Backend Developers at Zomato",
-    description: "Build a high-scale distributed web backend for a food ordering app.",
-    techStack: ["MongoDB", "Java", "Spring Boot", "Redis"],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_wsNlUYaV8Ki0hdLYJksiWA_kkiorXAvAA&s",
+    heading: "AI-Powered Dynamic Route Optimization for Smart Cities",
+    description: "Develop an AI-powered real-time navigation system optimized for traffic conditions.",
+    techStack: ["Python", "NetworkX", "OpenStreetMap API", "Flask", "MQTT"],
+    image: route_opt,
   },
   {
     label: "Guided Project",
-    heading: "Be a ModelOps Engineer at OpenAI",
+    heading: "Real-Time Model Deployment & Auto-Retraining System",
     description: "Build a real-time model monitoring and retraining system that adapts to data drift instantly.",
     techStack: ["Kubeflow", "MLflow", "TensorFlow Serving", "AWS Lambda", "Prometheus"],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_wsNlUYaV8Ki0hdLYJksiWA_kkiorXAvAA&s",
+    image: modelops,
   },
   {
     label: "Guided Project",
-    heading: "Be a ModelOps Engineer at OpenAI",
-    description: "Build a real-time model monitoring and retraining system that adapts to data drift instantly.",
-    techStack: ["Kubeflow", "MLflow", "TensorFlow Serving", "AWS Lambda", "Prometheus"],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_wsNlUYaV8Ki0hdLYJksiWA_kkiorXAvAA&s",
+    heading: "Live Fi nancial Analytics & Fraud Detection Dashboard",
+    description: "Build a real-time dashboard that provides live financial insights and fraud detection.",
+    techStack: ["React.js", "Node.js", "WebSockets", "MongoDB", "Express.js", "Solidity"],
+    image: fraud_d,
   },
   {
     label: "Guided Project",
-    heading: "Be a ModelOps Engineer at OpenAI",
-    description: "Build a real-time model monitoring and retraining system that adapts to data drift instantly.",
-    techStack: ["Kubeflow", "MLflow", "TensorFlow Serving", "AWS Lambda", "Prometheus"],
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL_wsNlUYaV8Ki0hdLYJksiWA_kkiorXAvAA&s",
+    heading: "Live AI Model Optimization with Reinforcement Learning",
+    description: "Develop an intelligent system that dynamically optimizes deployed ML models in production.",
+    techStack: ["TensorFlow", "Kubernetes", "ONNX", "AWS Fargate", "Apache Kafka"],
+    image: ai_optimization,
   },
-  // Add more projects as needed
+  {
+    label: "Guided Project",
+    heading: "AI-Powered Automatic Number Plate Recognition (ANPR) System",
+    description: "Develop an end-to-end number plate detection and recognition system for real-time vehicle identification.",
+    techStack: ["OpenALPR", "OpenCV", "Flask", "FastAPI", "Node.js", "SQL"],
+    image: vehile,
+  },
+  {
+    label: "Guided Project",
+    heading: "Live Multi-User Document Editing Platform",
+    description: "Develop a real-time collaborative document editing tool with multi-user live synchronization.",
+    techStack: ["React.js", "Node.js", "WebSockets", "Firebase", "CRDT", "WebRTC"],
+    image: editing_doc,
+  },
+
+  {
+    label: "Guided Project",
+    heading: "Real-Time Interactive Video Streaming Platform",
+    description: "Develop a low-latency video streaming platform with live chat and interactive elements.",
+    techStack: ["WebRTC", "Node.js", "Redis", "React.js", "AWS Lambda", "FFmpeg"],
+    image: video_stream_platf,
+  },
+  {
+    label: "Guided Project",
+    heading: "Smart AI Travel Planner with Real-Time Booking & Itinerary Generation ",
+    description: "Build an AI-powered travel agent that provides personalized trip planning, real-time booking, and itinerary generation.",
+    techStack: ["Fine-tuned LLMs", "Apigee", "MERN stack"],
+    image: real_time_booking,
+  }
 ];
 
+
 const courses = [
+  { image: aws, title: "aws" },
+  { image: cpp, title: "C++" },
+  { image: cybersecurity, title: "cybersecurity" },
+  { image: genai, title: "genai" },
+  { image: git, title: "Git" },
   { image: csharp, title: "C#" },
+  { image: github, title: "GitHub" },
   { image: go, title: "Go" },
   { image: java, title: "Java" },
   { image: js, title: "JavaScript" },
-  { image: git, title: "Git" },
-  { image: github, title: "GitHub" },
+  {image : lanchain , title : "langchain"},
+  {image : mern , title : "mern"},
+  {image : mlops , title : "mlops"},
+  // {image : opencv , title : "opencv"},
+  {image : php , title : "php"},
+  {image : powerbi , title : "powerbi"},
   { image: python, title: "Python" },
-  { image: cpp, title: "C++" },
+  { image: ruby, title: "ruby" },
+  { image: tensorflow, title: "tensorflow" },
 ];
 
 const settings = {
@@ -115,35 +174,34 @@ const CourseWeOffer = () => {
 
   return (
     <div className="text-white mt-20 mb-8 md:mt-40 md:mb-16">
-      <h2 className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold text-center pb-12 md:pb-24">
+      <h2 className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold text-center pb-12 md:pb-14">
         TECHNOLOGIES WE HAVE
       </h2>
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-48 gap-4 md:gap-6 place-items-center"
-        variants={gridVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-      >
-        {currentGroup.map((course, idx) => (
-          <motion.div
-            key={idx}
-            className="cursor-pointer"
-            variants={cardVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-3xl shadow-lg overflow-hidden flex justify-center items-center">
-              <img
-                src={course.image}
-                alt={course.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
 
-      <div className=" mt-16 md:mt-24">
+      <div className="overflow-hidden bg-black py-5">
+  <motion.div
+    className="flex space-x-24 items-center w-max"
+    animate={{ x: ["0%", "-50%"] }} // Moves images seamlessly
+    transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+  >
+    {[...courses, ...courses].map((course, index) => ( // Duplicates the array for seamless looping
+      <div key={index} className="flex-shrink-0">
+        <img
+          src={course.image}
+          alt={course.title}
+          className="h-28 w-28 md:h-32 md:w-32 object-contain"
+        />
+      </div>
+    ))}
+  </motion.div>
+</div>
+
+
+
+
+
+
+      <div className=" mt-24 md:mt-28 pt-4">
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }} 
           whileInView={{ opacity: 1, scale: 1, transition: { duration: 1.2, ease: "easeOut" } }} 
@@ -151,17 +209,19 @@ const CourseWeOffer = () => {
         >
           <Slider {...settings} className="  ">
             {projects.map((project, index) => (
-                <div key={index} className="bg-slate-900 flex flex-col items-center   justify-between text-white w-full md:w-[100%] lg:w-[100%] h-[35rem] md:h-[570px] rounded-xl shadow-lg p-4 md:p-6 relative  overflow-hidden ">
+                <div key={index} className="animated-border-box bg-slate-900 flex flex-col items-center justify-between text-white w-full md:w-[100%] lg:w-[100%] h-[35rem] md:h-[570px] rounded-xl shadow-lg p-4 md:p-6 relative overflow-hidden">
                   <div className="relative flex flex-col  items-center">
-                    <span className="absolute top-4 left-1/2 transform -translate-x-1/2 text-xs bg-green-100 text-green-800  font-semibold px-4 text-center py-1 rounded-full">
+                    <span className="absolute  left-1/2 transform -translate-x-1/2 text-xs bg-green-100 text-green-800  font-semibold px-4 text-center py-1 rounded-full">
                       {project.label}
                     </span>
-                    <div className="flex justify-center my-8 md:my-12">
-                      <img
-                        src={project.image}
-                        alt={project.heading}
-                        className="w-32 h-32 md:w-44 md:h-44 object-contain"
-                      />
+                    <div className="flex justify-center my-8 md:my-8 ">
+                    <img
+  src={project.image}
+  alt={project.heading}
+  className="w-32 h-32 md:w-52 md:h-52 object-contain rounded-xl border-4 border-transparent transition-all duration-500 ease-in-out
+              hover:shadow-[0_0_15px_rgba(0,240,255,0.8)]"
+/>
+
                     </div>
                     <h3 className="text-lg md:text-xl font-bold mb-2 text-center px-2">
                       {project.heading}
@@ -174,7 +234,7 @@ const CourseWeOffer = () => {
                     {project.techStack.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                        className="px-3 py-1 bg-gray-100 text-gray-700 font-bold text-xs rounded-full"
                       >
                         {tech}
                       </span>

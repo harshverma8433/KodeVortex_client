@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import BoxSection from "./BoxSection/BoxSection";
 import "./ChooseUs.css";
 import chooseus from "./chooseus.jpg";
+import WhyDifferent from "../WhyDifferent/WhyDifferent";
 
 const containerVariants = {
   hidden: { opacity: 1 },
@@ -15,14 +16,7 @@ const containerVariants = {
   },
 };
 
-const headingVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.2 } 
-  },
-};
+
 
 const circleVariants = {
   hidden: { opacity: 0, scale: 0 },
@@ -143,32 +137,7 @@ const ChooseUs = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="text-white  md:mt-10 flex flex-col items-center px-4"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-      >
-        <motion.h1
-          className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold pb-12 md:pb-24 tracking-wide text-center"
-          variants={headingVariants}
-        >
-          WHAT MAKE US DIFFERENT
-        </motion.h1>
-        <div className="flex flex-wrap justify-center gap-8 md:gap-24">
-          {Array(4)
-            .fill()
-            .map((_, index) => (
-              <motion.div
-                key={index}
-                className="w-24 h-24 md:w-40 md:h-40 bg-grad-wd rounded-full"
-                variants={circleVariants}
-                whileHover="hover"
-              ></motion.div>
-            ))}
-        </div>
-      </motion.div>
+      <WhyDifferent />
     </>
   );
 };

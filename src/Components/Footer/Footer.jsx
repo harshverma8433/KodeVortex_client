@@ -63,7 +63,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="KodeVortex"
-              className="sm:w-22 w-48 h-48 "
+              className="sm:w-22 w-[80%] h-[90%] "
             />
           </div>
 
@@ -78,14 +78,7 @@ const Footer = () => {
 
           </div>
 
-          {/* Services Section */}
-          <div className="flex flex-col space-y-2 text-center sm:text-left">
-            <h3 className="font-bold text-xl">Services</h3>
-            <a href="/software">Software</a>
-            <a href="/corporate">Corporate</a>
-            <a href="/college">College</a>
-          </div>
-
+          
           {/* Contact Section */}
           <div className="flex flex-col space-y-2 text-center sm:text-left">
             <h3 className="font-bold text-xl">Contact</h3>
@@ -117,7 +110,7 @@ const Footer = () => {
             <span>© 2024 KodeVortex</span>
             <div className="flex items-center space-x-2">
               <img
-                src="/public/SSL.jpg"
+                src="../../../public/SSL.jpg"
                 alt="Secured with SSL"
                 className="w-6 h-6"
               />

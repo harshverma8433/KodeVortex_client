@@ -7,8 +7,15 @@
   }
   
   .bg-algo-col {
-    background: linear-gradient(180deg, #056777 20%, #54677b 70%);
     overflow: hidden; /* Prevent content from overflowing */
+  }
+
+  .training-heading{
+    
+    color: white;
+    font-size: clamp(2rem, 8vw, 4rem); /* Responsive font size */
+    font-weight: bold;
+    line-height: 1.2;
   }
   
   /* Responsive adjustments */
@@ -163,3 +170,34 @@
       padding-left: 0.5rem !important; /* Further adjust list padding */
     }
   }
+
+
+  /* Unique shadow effect on hover */
+.hover-shadow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Improved content card styling */
+.content-card {
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.content-card:hover {
+  transform: scale(1.02);
+}
+
+/* List item styling */
+.list-item {
+  transition: color 0.3s ease-in-out;
+}
+
+.list-item:hover {
+  color: #60a5fa;
+}

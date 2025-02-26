@@ -1,13 +1,10 @@
 import "./TrainingOffer.css";
-import { useState } from "react";
-import {
-  FaPython,
-  FaJava,
-  FaCode,
-  FaDatabase,
-  FaCaretDown,
-} from "react-icons/fa";
+import { useState, useEffect } from "react"; // Import useEffect
 import { motion } from "framer-motion";
+import python from "./python.png";
+import java from "./java.png";
+import vscode from "./vscode.png";
+import database from "./database.png";
 
 // Outer section variants (no tilt)
 const sectionVariants = {
@@ -143,38 +140,39 @@ const TrainingOffer = () => {
   ];
 
   // Icons for the first set (4 items)
-  const iconsSet1 = [
-    <FaPython key="1" />,
-    <FaJava key="2" />,
-    <FaCode key="3" />,
-    <FaDatabase key="4" />,
-  ];
+  const iconsSet1 = [python, java, vscode, database];
 
   // Icons for the second set (4 items)
-  const iconsSet2 = [
-    <FaPython key="5" />,
-    <FaJava key="6" />,
-    <FaCode key="7" />,
-    <FaDatabase key="8" />,
-  ];
+  const iconsSet2 = [python, java, vscode, database];
 
   // States to track hovered circle for each column.
-  // When no circle is hovered, default to index 0.
   const [hoverIndex, setHoverIndex] = useState(null);
   const [hoverIndex1, setHoverIndex1] = useState(null);
 
+  // State to track the current index for the details card content
+  const [currentDetailsIndex, setCurrentDetailsIndex] = useState(0);
+
   const currentIndex1 = hoverIndex !== null ? hoverIndex : 0;
   const currentIndex2 = hoverIndex1 !== null ? hoverIndex1 : 0;
+
+  // Auto-change details card content every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDetailsIndex((prevIndex) => (prevIndex + 1) % trainingData1.length);
+    }, 5000); // Change content every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, []);
 
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false }} // Re-trigger on re-entry
+      viewport={{ once: false }}
       variants={sectionVariants}
       className="mt-24 px-4"
     >
-      <p className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold pb-8 md:pb-16 text-center tracking-wider">
+      <p className="training-heading pb-8 md:pb-16 text-center tracking-wider">
         TRAININGS WE OFFER
       </p>
 
@@ -182,15 +180,14 @@ const TrainingOffer = () => {
         {/* ------------ FIRST COLUMN (Left Box) ------------ */}
         <motion.div
           variants={leftBoxVariants}
-          className="w-full md:w-[40%] lg:w-[32%]  flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[80vh] mb-10 md:mb-0"
+          className="w-full md:w-[40%] lg:w-[32%] flex flex-col items-center rounded-3xl bg-gradient-to-tr from-slate-900 to-slate-950 p-4 md:p-6 text-white transition-all duration-500 h-[70vh] mb-10 md:mb-0"
         >
-          {/* Make the inner container a flex column that fills the height */}
           <motion.div variants={columnVariants} className="flex flex-col h-full">
             <motion.h1
               variants={headingVariants}
               className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-center"
             >
-              ALGOCHARYA – Technology & Placement Training
+              ALGOACHARYA
             </motion.h1>
 
             <motion.div
@@ -200,37 +197,40 @@ const TrainingOffer = () => {
               {trainingData1.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-4 md:mt-6 rounded-full bg-[#181739] transition-all duration-500 border border-white ${
-                      hoverIndex === index
-                        ? "scale-110 shadow-lg border-black"
-                        : ""
+                    className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-4 md:mt-6 rounded-full bg-slate-850 transition-all duration-500 hover-shadow ${
+                      hoverIndex === index ? "scale-110 shadow-lg border-black" : ""
                     }`}
                     style={{ marginLeft: index === 0 ? "0" : "-10px" }}
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(null)}
                   >
-                    {iconsSet1[index]}
+                    <img className="w-[60%] h-[60%]" src={iconsSet1[index]} alt="" />
                   </div>
-                  {(hoverIndex === index ||
-                    (hoverIndex === null && index === 0)) && (
-                    <FaCaretDown className="text-white mt-2 animate-bounce" />
-                  )}
                 </div>
               ))}
             </motion.div>
 
-            {/* Details card pushed to the bottom */}
             <motion.div
               variants={detailsVariants}
               className="p-2 mt-auto text-center"
             >
-              <div className="text-sm md:text-base lg:text-lg border-l-2 w-full bg-[#181739] h-auto md:h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white">
-                <h2 className="font-bold mb-2">
-                  {trainingData1[currentIndex1].category}
+              <div
+                className="content-card text-sm md:text-base lg:text-lg border-l-2 w-full bg-slate-850 h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white transform-style-preserve-3d perspective-1000 hover:rotate-y-15 hover:rotate-x-10 transition-transform duration-500 ease-in-out"
+                style={{
+                  transformStyle: "preserve-3d",
+                  perspective: "1000px",
+                }}
+              >
+                <h2 className="font-bold mb-2 transform translate-z-20">
+                  {trainingData1[currentDetailsIndex].category}
                 </h2>
-                <ul className="list-disc flex flex-col pt-2 space-y-1 md:space-y-2 list-inside">
-                  {trainingData1[currentIndex1].details.map((point, idx) => (
-                    <motion.li key={idx} variants={listItemVariants}>
+                <ul className="list-disc flex flex-col pt-2 space-y-1 md:space-y-2 list-inside transform translate-z-10">
+                  {trainingData1[currentDetailsIndex].details.map((point, idx) => (
+                    <motion.li
+                      key={idx}
+                      variants={listItemVariants}
+                      className="list-item transform translate-z-5"
+                    >
                       {point}
                     </motion.li>
                   ))}
@@ -243,14 +243,14 @@ const TrainingOffer = () => {
         {/* ------------ SECOND COLUMN (Right Box) ------------ */}
         <motion.div
           variants={rightBoxVariants}
-          className="w-full md:w-[40%] lg:w-[32%] flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[80vh]"
+          className="w-full md:w-[40%] lg:w-[32%] bg-gradient-to-tr from-slate-900 to-slate-950 flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[70vh]"
         >
           <motion.div variants={columnVariants} className="flex flex-col h-full">
             <motion.h1
               variants={headingVariants}
               className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-center"
             >
-              Lakshyarithm – Premium Career & Placement Program
+              LAKSHYARITHM
             </motion.h1>
 
             <motion.div
@@ -260,21 +260,15 @@ const TrainingOffer = () => {
               {trainingData2.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-4 md:mt-6 rounded-full bg-[#181739] transition-all duration-500 border border-white ${
-                      hoverIndex1 === index
-                        ? "scale-110 shadow-lg border-black"
-                        : ""
+                    className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-4 md:mt-6 rounded-full transition-all duration-500 hover-shadow ${
+                      hoverIndex1 === index ? "scale-110 shadow-lg border-black" : ""
                     }`}
                     style={{ marginLeft: index === 0 ? "0" : "-10px" }}
                     onMouseEnter={() => setHoverIndex1(index)}
                     onMouseLeave={() => setHoverIndex1(null)}
                   >
-                    {iconsSet2[index]}
+                    <img className="w-[60%] h-[60%]" src={iconsSet2[index]} alt="" />
                   </div>
-                  {(hoverIndex1 === index ||
-                    (hoverIndex1 === null && index === 0)) && (
-                    <FaCaretDown className="text-white mt-2 animate-bounce" />
-                  )}
                 </div>
               ))}
             </motion.div>
@@ -283,13 +277,23 @@ const TrainingOffer = () => {
               variants={detailsVariants}
               className="p-2 mt-auto text-center"
             >
-              <div className="text-sm md:text-base lg:text-lg border-l-2 w-full bg-[#181739] h-auto md:h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white">
-                <h2 className="font-bold mb-2">
-                  {trainingData2[currentIndex2].category}
+              <div
+                className="content-card text-sm md:text-base lg:text-lg border-l-2 w-full bg-slate-850 h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white transform-style-preserve-3d perspective-1000 hover:rotate-y-15 hover:rotate-x-10 transition-transform duration-500 ease-in-out"
+                style={{
+                  transformStyle: "preserve-3d",
+                  perspective: "1000px",
+                }}
+              >
+                <h2 className="font-bold mb-2 transform translate-z-20">
+                  {trainingData2[currentDetailsIndex].category}
                 </h2>
-                <ul className="list-disc flex flex-col pt-2 space-y-1 md:space-y-2 list-inside">
-                  {trainingData2[currentIndex2].details.map((point, idx) => (
-                    <motion.li key={idx} variants={listItemVariants}>
+                <ul className="list-disc flex flex-col pt-2 space-y-1 md:space-y-2 list-inside transform translate-z-10">
+                  {trainingData2[currentDetailsIndex].details.map((point, idx) => (
+                    <motion.li
+                      key={idx}
+                      variants={listItemVariants}
+                      className="list-item transform translate-z-5"
+                    >
                       {point}
                     </motion.li>
                   ))}
