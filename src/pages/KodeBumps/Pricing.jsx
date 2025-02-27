@@ -62,10 +62,10 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center"
         >
-          <h1 className="text-xl sm:text-2xl">Choose the perfect plan for you</h1>
+          <h1 className="text-xl sm:text-2xl">Choose the perfect plan for youself</h1>
           <h1 className="text-3xl sm:text-4xl font-serif py-6">Pricing Plan</h1>
           <h1 className="text-lg sm:text-xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
           </h1>
         </motion.div>
 

@@ -9,7 +9,7 @@ const ContactUs = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: false, amount: 0.2 }}
-        className="text-xl text-white"
+        className="text-3xl text-white"
       >
         Get in touch with us today!
       </motion.h2>
@@ -31,7 +31,7 @@ const ContactUs = () => {
         viewport={{ once: false, amount: 0.2 }}
         className="text-white text-lg mt-2"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Our Team is Ready to Assist You
       </motion.p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
@@ -46,9 +46,8 @@ const ContactUs = () => {
           <Mail size={40} className="text-white" />
           <h3 className="text-lg font-semibold mt-4">Email</h3>
           <p className="text-white mt-2 text-lg text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-          <p className="mt-2 font-medium pt-6">info@trainingagency.com</p>
+          contact.kodebumps@gmail.com          </p>
+          {/* <p className="mt-2 font-medium pt-6">contact.kodebumps@gmail.com</p> */}
         </motion.div>
 
         {/* Phone Section */}
@@ -62,9 +61,10 @@ const ContactUs = () => {
           <Phone size={40} className="text-white" />
           <h3 className="text-lg font-semibold mt-4">Phone</h3>
           <p className="text-white mt-2 text-lg text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          +91-9762051751 <br /> +91-7091204379
           </p>
-          <p className="mt-2 font-medium pt-6">+1-123-456-7890</p>
+          {/* <p className="mt-2 font-medium pt-6">+91-9762051751</p> */}
+          {/* <p className="mt-2 font-medium pt-1">+91-7091204379</p> */}
         </motion.div>
 
         {/* Office Section */}
@@ -78,9 +78,8 @@ const ContactUs = () => {
           <MapPin size={40} className="text-white" />
           <h3 className="text-lg font-semibold mt-4">Office</h3>
           <p className="text-white mt-2 text-lg text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-          <p className="mt-2 font-medium pt-6">123 Technology Street, City, Country</p>
+          RNO74/5FLA/104, Legacy Fortune Exotica, Ravet, Pune, Maharashtra, 412101          </p>
+          {/* <p className="mt-2 font-medium pt-6">123 Technology Street, City, Country</p> */}
         </motion.div>
       </div>
     </section>
