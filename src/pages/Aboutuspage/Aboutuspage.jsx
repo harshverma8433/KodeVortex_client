@@ -48,16 +48,13 @@ const Aboutuspage = () => {
         </h1>
         <div className="lg:px-[5%] pl-[5%] flex flex-col space-y-5 my-10">
           <p className="text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            ullamcorper scelerisque mi, in malesuada felis malesuada vel.
+          KodeVortex is a cutting-edge learning platform designed to equip students and professionals with 
+          high-tech and industry-relevant skills. 
+          We bridge the gap between academic knowledge and real-world applications through expert-led training, hands-on projects, 
+          and structured learning paths.
           </p>
           <p className="text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-            ullamcorper scelerisque mi, in malesuada felis malesuada vel.
+          Join us to build expertise, gain industry-recognized certifications, and take your career to the next level! 🚀
           </p>
         </div>
       </motion.div>
@@ -83,13 +80,8 @@ const Aboutuspage = () => {
             <div className="w-full lg:w-[28rem] h-[20rem] lg:h-[24rem] bg-gray-300 rounded-[1rem] lg:rounded-[2rem]"></div>
             <div className="max-w-lg">
               <p className="text-white text-lg lg:text-[130%] text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-              </p>
+              At KodeVortex, we bridge the gap between academia and industry by providing high-tech, hands-on training in competitive programming, data structures, and algorithms. Our dynamic learning environment fosters growth, confidence, and career readiness. We offer live project opportunities, one-to-one mentoring, and startup incubators to support your professional journey. 
+              Additionally, we provide development services and certifications to help students and professionals excel in today’s tech-driven world. 🚀              </p>
             </div>
           </div>
         </div>
@@ -115,12 +107,11 @@ const Aboutuspage = () => {
           <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-12 items-center">
             <div className="max-w-lg">
               <p className="text-white text-lg lg:text-2xl text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                ullamcorper scelerisque mi, in malesuada felis malesuada vel.
+              At KodeVortex, our vision is to redefine tech education by making high-quality, industry-aligned learning accessible to everyone. 
+              We aspire to create a future where learners seamlessly transition from academia to the professional world, equipped with the cutting-edge skills, problem-solving mindset, and technical expertise required to thrive in the evolving tech landscape.
+              </p>
+              <p className="text-white text-lg lg:text-2xl text-justify">
+              By fostering innovation, hands-on learning, and career-driven mentorship, we aim to build a community of skilled professionals and future leaders who drive technological advancements and shape the digital future. 🚀
               </p>
             </div>
             <div className="w-full lg:w-[28rem] h-[20rem] lg:h-[24rem] bg-gray-300 rounded-[1rem] lg:rounded-[2rem]"></div>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -11,20 +11,11 @@ const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [openAccount, setopenAccount] = useState(false);
-  const [text, setText] = useState("Joint Venture");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const accountRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setText((prevText) =>
-        prevText === "Joint Venture" ? "Kodebumps" : "Joint Venture"
-      );
-    }, 3000); // Switch every 3 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Close mobile menu when screen size exceeds 1100px
+  // Close mobile menu when screen size exceeds 768px (tablet) or 1100px (desktop)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1100) {
@@ -36,6 +27,33 @@ const Navbar = ({ user, setUser }) => {
 
     // Cleanup the event listener
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Handle body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMobileMenuOpen]);
+
+  // Close dropdown menus when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (accountRef.current && !accountRef.current.contains(event.target)) {
+        setopenAccount(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const handleLogout = async () => {
@@ -57,6 +75,10 @@ const Navbar = ({ user, setUser }) => {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    // If opening the menu, also close the account dropdown
+    if (!isMobileMenuOpen) {
+      setopenAccount(false);
+    }
   };
 
   // Function to handle link clicks
@@ -66,14 +88,18 @@ const Navbar = ({ user, setUser }) => {
   };
 
   return (
-    <nav className="flex w-full justify-between px-[4%] mb-4 pt-4 items-center font-sans">
-      <div className="flex items-center ">
+    <nav className="flex w-full justify-between px-[4%] mb-4 pt-4 items-center font-sans relative">
+      <div className="flex items-center">
         <Link to="/" className="flex h-24 items-center">
-          <div className="flex items-center ">
-            <img src={logo} alt="logo.png" className="w-[55%] h-[5%]" />
-            <h1 className="kodev-font ">
-              <span className="kode-col text-xl ">KODE</span>
-              <span className="text-white text-xl ">VORTEX</span>
+          <div className="flex items-center">
+            <img 
+              src={logo} 
+              alt="logo.png" 
+              className="w-8 sm:w-12 md:w-16 lg:w-[55%] h-auto" 
+            />
+            <h1 className="kodev-font">
+              <span className="kode-col text-xs sm:text-sm md:text-lg lg:text-xl">KODE</span>
+              <span className="text-white text-xs sm:text-sm md:text-lg lg:text-xl">VORTEX</span>
             </h1>
           </div>
         </Link>
@@ -143,13 +169,13 @@ const Navbar = ({ user, setUser }) => {
           </Link>
 
           {user ? (
-            <div className="relative">
+            <div className="relative" ref={accountRef}>
               <MdAccountCircle
                 onClick={() => setopenAccount(!openAccount)}
                 className="text-4xl cursor-pointer bg-col-7"
               />
               {openAccount && (
-                <div className="absolute bg-zinc-800 rounded-xl w-36 top-full mt-2">
+                <div className="absolute bg-zinc-800 rounded-xl w-36 top-full mt-2 z-50">
                   <div className="flex flex-col items-center">
                     <h1 className="py-3 rounded-t-xl w-full h-full hover:bg-zinc-900 cursor-pointer text-center">
                       {user.name}
@@ -171,112 +197,148 @@ const Navbar = ({ user, setUser }) => {
                 <span></span>
                 <span></span>
                 <span></span>
-                <span className="fade-in-out">{text}</span>
+                <span>Kodebumps</span>
               </div>
             </Link>
           )}
         </div>
 
-        {/* Hamburger Menu Icon */}
-        <div className="lg:hidden flex items-center">
-          <button onClick={toggleMobileMenu} className="text-white text-2xl">
+        {/* Mobile View - Account/Kodebumps button and Hamburger */}
+        <div className="lg:hidden flex items-center space-x-2 sm:space-x-4">
+          {user ? (
+            <div className="relative" ref={accountRef}>
+              <MdAccountCircle
+                onClick={() => setopenAccount(!openAccount)}
+                className="text-3xl cursor-pointer bg-col-7"
+              />
+              {openAccount && (
+                <div className="absolute bg-zinc-800 rounded-xl w-36 right-0 top-full mt-2 z-50">
+                  <div className="flex flex-col items-center">
+                    <h1 className="py-3 rounded-t-xl w-full h-full hover:bg-zinc-900 cursor-pointer text-center">
+                      {user.name}
+                    </h1>
+                    <button
+                      onClick={handleLogout}
+                      className="py-3 rounded-b-xl h-full cursor-pointer hover:bg-zinc-900 w-full text-center"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link to="/kodebumps" className="transform scale-75 sm:scale-90">
+              <div className="butt text-white rounded-full">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span className="text-xs sm:text-sm">Kodebumps</span>
+              </div>
+            </Link>
+          )}
+          
+          {/* Hamburger Menu Icon */}
+          <button 
+            onClick={toggleMobileMenu} 
+            className="text-white text-2xl z-50"
+            aria-label="Toggle navigation menu"
+          >
             {isMobileMenuOpen ? <MdClose /> : <MdMenu />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Semi-transparent Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-24 left-0 right-0 bg-black text-white z-50">
-          <div className="flex flex-col items-center space-y-4 py-4">
-            <Link
-              to="/"
-              onClick={() => handleLinkClick("/")} // Close menu and navigate
-              className={`px-4 text-base py-2 rounded-full ${
-                location.pathname === "/"
-                  ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
-                  : "hover:border-b-4 hover:border-[#3da9b9]"
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/training"
-              onClick={() => handleLinkClick("/training")} // Close menu and navigate
-              className={`px-4 text-base py-2 rounded-full ${
-                location.pathname === "/training"
-                  ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
-                  : "hover:border-b-4 hover:border-[#3da9b9]"
-              }`}
-            >
-              Trainings
-            </Link>
-            <Link
-              to="/internship"
-              onClick={() => handleLinkClick("/internship")} // Close menu and navigate
-              className={`px-4 text-base py-2 rounded-full ${
-                location.pathname === "/internship"
-                  ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
-                  : "hover:border-b-4 hover:border-[#3da9b9]"
-              }`}
-            >
-              Internship
-            </Link>
-            <Link
-              to="/about-us"
-              onClick={() => handleLinkClick("/about-us")} // Close menu and navigate
-              className={`px-4 text-base py-2 rounded-full ${
-                location.pathname === "/about-us"
-                  ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
-                  : "hover:border-b-4 hover:border-[#3da9b9]"
-              }`}
-            >
-              About us
-            </Link>
-            <Link
-              to="/contact-us"
-              onClick={() => handleLinkClick("/contact-us")} // Close menu and navigate
-              className={`px-4 text-base py-2 rounded-full ${
-                location.pathname === "/contact-us"
-                  ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
-                  : "hover:border-b-4 hover:border-[#3da9b9]"
-              }`}
-            >
-              Contact us
-            </Link>
-            {user ? (
-              <div className="relative">
-                <MdAccountCircle
-                  onClick={() => setopenAccount(!openAccount)}
-                  className="text-4xl cursor-pointer bg-col-7"
-                />
-                {openAccount && (
-                  <div className="absolute bg-zinc-800 rounded-xl w-36 top-full mt-2">
-                    <div className="flex flex-col items-center">
-                      <h1 className="py-3 rounded-t-xl w-full h-full hover:bg-zinc-900 cursor-pointer text-center">
-                        {user.name}
-                      </h1>
-                      <button
-                        onClick={handleLogout}
-                        className="py-3 rounded-b-xl h-full cursor-pointer hover:bg-zinc-900 w-full text-center"
-                      >
-                        Logout
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link to="/kodebumps" onClick={() => handleLinkClick("/kodebumps")}>
-                <div className="butt text-white rounded-full">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span className="fade-in-out">{text}</span>
-                </div>
+        <div 
+          ref={mobileMenuRef}
+          className="lg:hidden fixed inset-0 z-40 flex justify-center items-center"
+          style={{ 
+            backdropFilter: 'blur(8px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)'
+          }}
+        >
+          <div className="flex flex-col items-center justify-center bg-black bg-opacity-80 rounded-xl py-8 px-6 mx-4 max-w-md w-full border border-[#056777]">
+            <div className="flex flex-col items-center mb-8">
+              <img 
+                src={logo} 
+                alt="logo.png" 
+                className="w-16 h-auto mb-3" 
+              />
+              <h1 className="kodev-font">
+                <span className="kode-col text-2xl">KODE</span>
+                <span className="text-white text-2xl">VORTEX</span>
+              </h1>
+            </div>
+
+            <div className="flex flex-col items-center space-y-4 w-full">
+              {/* Adding horizontal rules between nav items, just like desktop */}
+              <Link
+                to="/"
+                onClick={() => handleLinkClick("/")}
+                className={`w-full text-center text-white px-4 text-lg py-2 rounded-full ${
+                  location.pathname === "/"
+                    ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
+                    : "hover:border-b-4 hover:border-[#3da9b9]"
+                }`}
+              >
+                Home
               </Link>
-            )}
+              <hr className="w-full h-[1px] bg-white opacity-20" />
+
+              <Link
+                to="/training"
+                onClick={() => handleLinkClick("/training")}
+                className={`w-full text-center text-white px-4 text-lg py-2 rounded-full ${
+                  location.pathname === "/training"
+                    ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
+                    : "hover:border-b-4 hover:border-[#3da9b9]"
+                }`}
+              >
+                Trainings
+              </Link>
+              <hr className="w-full h-[1px] bg-white opacity-20" />
+
+              <Link
+                to="/internship"
+                onClick={() => handleLinkClick("/internship")}
+                className={`w-full text-center text-white px-4 text-lg py-2 rounded-full ${
+                  location.pathname === "/internship"
+                    ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
+                    : "hover:border-b-4 hover:border-[#3da9b9]"
+                }`}
+              >
+                Internship
+              </Link>
+              <hr className="w-full h-[1px] bg-white opacity-20" />
+
+              <Link
+                to="/about-us"
+                onClick={() => handleLinkClick("/about-us")}
+                className={`w-full text-center text-white px-4 text-lg py-2 rounded-full ${
+                  location.pathname === "/about-us"
+                    ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
+                    : "hover:border-b-4 hover:border-[#3da9b9]"
+                }`}
+              >
+                About us
+              </Link>
+              <hr className="w-full h-[1px] bg-white opacity-20" />
+
+              <Link
+                to="/contact-us"
+                onClick={() => handleLinkClick("/contact-us")}
+                className={`w-full text-center text-white px-4 text-lg py-2 rounded-full ${
+                  location.pathname === "/contact-us"
+                    ? "border-b-2 border-[#056777] hover:border-b-4 hover:border-[#3da9b9] navbar-link-active"
+                    : "hover:border-b-4 hover:border-[#3da9b9]"
+                }`}
+              >
+                Contact us
+              </Link>
+            </div>
           </div>
         </div>
       )}

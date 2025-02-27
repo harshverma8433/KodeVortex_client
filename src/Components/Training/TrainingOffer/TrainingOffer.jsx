@@ -180,9 +180,9 @@ const TrainingOffer = () => {
         {/* ------------ FIRST COLUMN (Left Box) ------------ */}
         <motion.div
           variants={leftBoxVariants}
-          className="w-full md:w-[40%] lg:w-[32%] flex flex-col items-center rounded-3xl bg-gradient-to-tr from-slate-900 to-slate-950 p-4 md:p-6 text-white transition-all duration-500 h-[70vh] mb-10 md:mb-0"
+          className="w-full md:w-[40%] lg:w-[32%] bg-gradient-to-tr from-slate-900 to-slate-950 flex flex-col items-center rounded-3xl p-4 md:p-6 text-white transition-all duration-500 h-auto md:h-[70vh] mb-10 md:mb-0 overflow-hidden"
         >
-          <motion.div variants={columnVariants} className="flex flex-col h-full">
+          <motion.div variants={columnVariants} className="flex flex-col h-full w-full">
             <motion.h1
               variants={headingVariants}
               className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-center"
@@ -192,15 +192,15 @@ const TrainingOffer = () => {
 
             <motion.div
               variants={iconsVariants}
-              className="relative flex space-x-2 justify-center"
+              className="relative flex justify-center flex-wrap gap-2 md:gap-0 md:flex-nowrap"
             >
               {trainingData1.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-4 md:mt-6 rounded-full bg-slate-850 transition-all duration-500 hover-shadow ${
+                    className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-2 md:mt-6 rounded-full transition-all duration-500 hover-shadow ${
                       hoverIndex === index ? "scale-110 shadow-lg border-black" : ""
                     }`}
-                    style={{ marginLeft: index === 0 ? "0" : "-10px" }}
+                    style={{ marginLeft: index === 0 || window.innerWidth < 768 ? "0" : "-10px" }}
                     onMouseEnter={() => setHoverIndex(index)}
                     onMouseLeave={() => setHoverIndex(null)}
                   >
@@ -212,10 +212,10 @@ const TrainingOffer = () => {
 
             <motion.div
               variants={detailsVariants}
-              className="p-2 mt-auto text-center"
+              className="p-2 mt-auto text-center w-full"
             >
               <div
-                className="content-card text-sm md:text-base lg:text-lg border-l-2 w-full bg-slate-850 h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white transform-style-preserve-3d perspective-1000 hover:rotate-y-15 hover:rotate-x-10 transition-transform duration-500 ease-in-out"
+                className="content-card text-xs sm:text-sm md:text-base lg:text-lg border-l-2 w-full bg-slate-850 md:h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white transform-style-preserve-3d perspective-1000 hover:rotate-y-15 hover:rotate-x-10 transition-transform duration-500 ease-in-out overflow-hidden"
                 style={{
                   transformStyle: "preserve-3d",
                   perspective: "1000px",
@@ -229,7 +229,7 @@ const TrainingOffer = () => {
                     <motion.li
                       key={idx}
                       variants={listItemVariants}
-                      className="list-item transform translate-z-5"
+                      className="list-item transform translate-z-5 text-left break-words"
                     >
                       {point}
                     </motion.li>
@@ -243,9 +243,9 @@ const TrainingOffer = () => {
         {/* ------------ SECOND COLUMN (Right Box) ------------ */}
         <motion.div
           variants={rightBoxVariants}
-          className="w-full md:w-[40%] lg:w-[32%] bg-gradient-to-tr from-slate-900 to-slate-950 flex flex-col items-center rounded-3xl bg-algo-col p-4 md:p-6 text-white transition-all duration-500 h-[70vh]"
+          className="w-full md:w-[40%] lg:w-[32%] bg-gradient-to-tr from-slate-900 to-slate-950 flex flex-col items-center rounded-3xl p-4 md:p-6 text-white transition-all duration-500 h-auto md:h-[70vh] overflow-hidden"
         >
-          <motion.div variants={columnVariants} className="flex flex-col h-full">
+          <motion.div variants={columnVariants} className="flex flex-col h-full w-full">
             <motion.h1
               variants={headingVariants}
               className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-center"
@@ -255,15 +255,15 @@ const TrainingOffer = () => {
 
             <motion.div
               variants={iconsVariants}
-              className="relative flex space-x-2 justify-center"
+              className="relative flex justify-center flex-wrap gap-2 md:gap-0 md:flex-nowrap"
             >
               {trainingData2.map((_, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-4 md:mt-6 rounded-full transition-all duration-500 hover-shadow ${
+                    className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex justify-center items-center text-2xl md:text-3xl cursor-pointer mt-2 md:mt-6 rounded-full transition-all duration-500 hover-shadow ${
                       hoverIndex1 === index ? "scale-110 shadow-lg border-black" : ""
                     }`}
-                    style={{ marginLeft: index === 0 ? "0" : "-10px" }}
+                    style={{ marginLeft: index === 0 || window.innerWidth < 768 ? "0" : "-10px" }}
                     onMouseEnter={() => setHoverIndex1(index)}
                     onMouseLeave={() => setHoverIndex1(null)}
                   >
@@ -275,10 +275,10 @@ const TrainingOffer = () => {
 
             <motion.div
               variants={detailsVariants}
-              className="p-2 mt-auto text-center"
+              className="p-2 mt-auto text-center w-full"
             >
               <div
-                className="content-card text-sm md:text-base lg:text-lg border-l-2 w-full bg-slate-850 h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white transform-style-preserve-3d perspective-1000 hover:rotate-y-15 hover:rotate-x-10 transition-transform duration-500 ease-in-out"
+                className="content-card text-xs sm:text-sm md:text-base lg:text-lg border-l-2 w-full bg-slate-850 md:h-[14rem] lg:px-4 px-2 py-4 rounded-xl border-white transform-style-preserve-3d perspective-1000 hover:rotate-y-15 hover:rotate-x-10 transition-transform duration-500 ease-in-out overflow-hidden"
                 style={{
                   transformStyle: "preserve-3d",
                   perspective: "1000px",
@@ -292,7 +292,7 @@ const TrainingOffer = () => {
                     <motion.li
                       key={idx}
                       variants={listItemVariants}
-                      className="list-item transform translate-z-5"
+                      className="list-item transform translate-z-5 text-left break-words"
                     >
                       {point}
                     </motion.li>

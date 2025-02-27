@@ -15,7 +15,7 @@ const OurTeam1 = () => {
     { name: "Suraj Nayak", image: suraj_nayak, role: "Project Manager" },
     { name: "Sonal Mittal", image: sonal_mittal, role: "Team Member" },
     { name: "Rishabh Tripathi", image: rishabh_triphati, role: "Team Member" },
-    { name: "Sanskriti", image: sanskriti, role: "Team Member" },
+    { name: "Sanskrati Agrawal", image: sanskriti, role: "Team Member" },
   ];
 
   const settings = {
@@ -50,7 +50,8 @@ const OurTeam1 = () => {
   return (
     <div className="">
       <h1 className="text-[#CF9274] font-mono text-5xl font-semibold text-center  tracking-wide text-font py-16">
-        OUR TEAM
+      The Minds Behind KodeVortex
+
       </h1>
       <div className="w-[70%] mx-auto" ref={ref}>
         <div className="px-10">
