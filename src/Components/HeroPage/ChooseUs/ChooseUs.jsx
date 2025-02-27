@@ -204,12 +204,7 @@ const ChooseUs = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.1 }}
       >
-        <motion.h1 
-          className="font-bold chooseus-heading tracking-wider py-8 md:py-12 text-center"
-          variants={fadeInVariants}
-        >
-          WHY YOU SHOULD CHOOSE US
-        </motion.h1>
+        
         {/* Abstract geometric shapes in background */}
         <div className="absolute inset-0 overflow-hidden opacity-30">
           {/* Large circle */}
