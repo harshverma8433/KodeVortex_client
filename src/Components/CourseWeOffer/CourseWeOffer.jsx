@@ -48,7 +48,7 @@ const projects = [
   },
   {
     label: "Guided Project",
-    heading: "Live Fi nancial Analytics & Fraud Detection Dashboard",
+    heading: "Live Financial Analytics & Fraud Detection Dashboard",
     description: "Build a real-time dashboard that provides live financial insights and fraud detection.",
     techStack: ["React.js", "Node.js", "WebSockets", "MongoDB", "Express.js", "Solidity"],
     image: fraud_d,
