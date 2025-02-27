@@ -96,9 +96,7 @@ const TeamShowcase = () => {
   return (
     <div className="bg-black  py-12 md:py-20">
       {/* Heading */}
-      <h1 className="font-bold ourteam-heading text-center tracking-wide py-8 md:py-16">
-        OUR TEAM
-      </h1>
+    
 
       <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16 md:py-24 overflow-hidden">
         {/* Heading with animated reveal */}
