@@ -28,7 +28,7 @@ const Footer = () => {
               icon: fo2,
             },
             {
-              url: "https://www.youtube.com/channel/UCXXXXXX",
+              url: "https://youtube.com/@kodevortex?si=PKz-yTp_5tH5QLFW",
               name: "YouTube",
               icon:  fo1,
             },
