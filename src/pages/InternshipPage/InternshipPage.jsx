@@ -59,10 +59,7 @@ const InternshipPage = () => {
               </button>
             </div>
             <h1 className="pt-2 text-xl md:text-2xl text-start md:mx-6 tracking-wide mt-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              ullamcorper scelerisque mi, in malesuada felis malesuada vel.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-              ullamcorper scelerisque mi, in malesuada felis malesuada vel.
+            Kickstart your career with a hands-on, industry-focused internship at KodeVortex. Gain real-world skills, expert mentorship, and work on cutting-edge projects to enhance your technical expertise and build a strong portfolio. Take the next step toward your dream career—apply today! 🔥
             </h1>
           </div>
 
