@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import BoxSection from "./BoxSection/BoxSection";
 import "./ChooseUs.css";
 import chooseus from "./chooseus.jpg";
+import { Link } from "react-router-dom";
 import WhyDifferent from "../WhyDifferent/WhyDifferent";
 
 const ChooseUs = () => {
@@ -593,12 +594,12 @@ const ChooseUs = () => {
               />
               
               {/* Text and icon */}
-              <span className="relative z-10 flex items-center gap-2">
+             <Link to="/training"> <span className="relative z-10 flex items-center gap-2">
                 Join Our Program
                 <svg className="w-5 h-5 inline-block group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-              </span>
+              </span></Link>
             </motion.button>
             
             <motion.button
@@ -609,12 +610,12 @@ const ChooseUs = () => {
               }}
               whileTap={{ scale: 0.97 }}
             >
-              <span className="flex items-center gap-2">
+              <Link  to="/about-us"><span className="flex items-center gap-2">
                 Learn More 
                 <svg className="w-5 h-5 inline-block opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 18l6-6-6-6"/>
                 </svg>
-              </span>
+              </span></Link>
             </motion.button>
           </motion.div>
         </motion.div>
