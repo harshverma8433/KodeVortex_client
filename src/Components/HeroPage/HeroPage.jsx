@@ -137,10 +137,10 @@ function HeroPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
         >
-          <Slider {...sliderSettings} className="quotes-slider">
+          <Slider {...sliderSettings} className="quotes-slider ">
             {quotes.map((quote, index) => (
-              <div key={index} className="quote-card">
-                <h2>Quote of the Day</h2>
+              <div key={index} className="quote-card flex items-center justify-center ">
+                {/* <h2>Quote of the Day</h2> */}
                 <p>〝{quote.text}〞</p>
                 <p className="author">- {quote.author}</p>
               </div>

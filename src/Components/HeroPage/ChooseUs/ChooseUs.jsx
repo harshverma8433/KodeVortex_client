@@ -75,7 +75,7 @@ const ChooseUs = () => {
         viewport={{ once: false, amount: 0.1 }}
       >
         <motion.h1 
-          className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold tracking-wide py-8 md:py-12 text-center"
+          className="font-bold chooseus-heading tracking-wider py-8 md:py-12 text-center"
           variants={fadeInVariants}
         >
           WHY YOU SHOULD CHOOSE US

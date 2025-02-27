@@ -170,9 +170,9 @@ const TrainingOffer = () => {
       whileInView="visible"
       viewport={{ once: false }}
       variants={sectionVariants}
-      className="mt-24 px-4"
+      className=" px-4"
     >
-      <p className="training-heading pb-8 md:pb-16 text-center tracking-wider">
+      <p className="training-heading  pb-8 md:pb-16 text-center tracking-wider">
         TRAININGS WE OFFER
       </p>
 

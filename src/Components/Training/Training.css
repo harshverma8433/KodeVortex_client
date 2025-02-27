@@ -1,61 +1,54 @@
 .training-card {
-  width: 90%; /* Adjust width for smaller screens */
-  height: 300px; /* Adjust height for smaller screens */
-  perspective: 1000px;
-  margin: 10px auto; /* Center the card and add spacing */
+  width: 90%;
+  height: 300px;
+  margin: 10px auto;
+  position: relative;
+  perspective: 1000px; /* Remove if not needed */
 }
 
 .training-inner {
   width: 100%;
   height: 100%;
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
-  border-radius: 30px;
+  transform-style: preserve-3d; /* Remove if not needed */
+  transition: transform 0.6s ease-in-out; /* Remove if not needed */
+}
+
+.training-front {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.training-card:hover .training-inner {
-  transform: rotateY(180deg);
-}
-
-.training-front,
-.training-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-}
-
 .training-front img {
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.training-back {
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  transform: rotateY(180deg);
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .training-card {
-    height: 250px; /* Adjust height for tablets */
+    height: 250px;
   }
 }
 
 @media (max-width: 576px) {
   .training-card {
-    height: 200px; /* Adjust height for mobile devices */
+    height: 200px;
   }
 
-  .training-back h2 {
-    font-size: 1rem; /* Adjust font size for smaller screens */
-  }
-}   
+  
+}
+
+.training-heading{
+  color: white;
+  font-size: clamp(1rem, 5vw, 3rem); /* Responsive font size */
+  font-weight: bold;
+  line-height: 1.2;
+}

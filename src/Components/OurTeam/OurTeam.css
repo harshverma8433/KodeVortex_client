@@ -6,3 +6,11 @@
   .slick-list {
     margin: 0 -10px; /* Compensate for the margin added to slides */
   }
+
+
+  .ourteam-heading{
+    color: white;
+    font-size: clamp(1rem, 5vw, 3rem); /* Responsive font size */
+    font-weight: bold;
+    line-height: 1.2;
+  }

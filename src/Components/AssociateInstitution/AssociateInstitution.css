@@ -1,9 +1,4 @@
-.bg-grad-certificate{
-    background: linear-gradient(90deg , #54677B 0% , #3299AA 100%);
-}
-
-
-.success-head{
+.asso-ins-heading{
         
     color: white;
     font-size: clamp(1rem, 5vw, 3rem); /* Responsive font size */

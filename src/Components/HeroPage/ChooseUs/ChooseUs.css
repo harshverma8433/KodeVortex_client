@@ -8,6 +8,13 @@
 
 }
 
+.chooseus-heading{
+  color: white;
+  font-size: clamp(1rem, 5vw, 3rem); /* Responsive font size */
+  font-weight: bold;
+  line-height: 1.2;
+}
+
 
 .bg-grad-wd{
     background: linear-gradient(90deg , #9CC6C9 0% , #424097 100%);

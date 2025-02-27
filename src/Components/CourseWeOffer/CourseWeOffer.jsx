@@ -173,8 +173,8 @@ const CourseWeOffer = () => {
   );
 
   return (
-    <div className="text-white mt-20 mb-8 md:mt-40 md:mb-16">
-      <h2 className="text-[#CF9274] font-mono text-3xl md:text-5xl font-semibold text-center pb-12 md:pb-14">
+    <div className="text-white mt-20 mb-8 md:mb-16">
+      <h2 className="course-heading text-center tracking-wider pb-12 md:pb-14">
         TECHNOLOGIES WE HAVE
       </h2>
 
@@ -201,7 +201,7 @@ const CourseWeOffer = () => {
 
 
 
-      <div className=" mt-24 md:mt-28 pt-4">
+      <div className=" mt-24 md:mt-12 pt-4">
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }} 
           whileInView={{ opacity: 1, scale: 1, transition: { duration: 1.2, ease: "easeOut" } }} 

@@ -40,7 +40,7 @@ const WhyDifferent = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2 }}
       >
-      <h2 className="">What Make Us Different</h2>
+      <h2 className="different-des text-center tracking-wider pt-16">What Make Us Different</h2>
       <Slider {...sliderSettings} className="quotes-slider">
         {diffcontent.map((different, index) => (
           <div key={index} className="quote-card py-16">

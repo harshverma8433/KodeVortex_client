@@ -67,7 +67,7 @@ const SuccessStories = () => {
     >
       {/* Header */}
       <motion.h1 
-        className="text-[#CF9274] font-mono text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wide pb-12 md:pb-24 pt-8 text-center"
+        className="success-head  font-bold text-center tracking-wider pb-12 md:pb-24 pt-8 text-center"
         variants={headerVariants}
       >
         Success Stories

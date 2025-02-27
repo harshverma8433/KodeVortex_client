@@ -50,7 +50,7 @@ const OurTeam = () => {
   return (
     <div className="bg-black  py-12 md:py-20">
       {/* Heading */}
-      <h1 className="text-[#CF9274] font-mono text-3xl md:text-4xl lg:text-5xl font-semibold text-center tracking-wide py-8 md:py-16">
+      <h1 className="font-bold ourteam-heading text-center tracking-wide py-8 md:py-16">
         OUR TEAM
       </h1>
 

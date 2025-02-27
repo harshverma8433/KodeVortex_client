@@ -1,10 +1,8 @@
-import React from "react";
 import Slider from "react-slick"; // The carousel library
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
 import galgotia from "./galgotia.jpg";
 import gla from "./gla.png";
 import iftm from "./iftm.jpg";
@@ -14,7 +12,7 @@ import nims from "./nims.png";
 import sharada from "./sharada.jpg";
 import vishwaniketan from "./vishwaniketan.png";
 import kg_reddy from "./kg_reddy.png";
-
+import "./AssociateInstitution.css"
 const AssociateInstitution = () => {
   const AssociateInstitutionContent = [
     galgotia,
@@ -90,7 +88,7 @@ const AssociateInstitution = () => {
       viewport={{ once: false, amount: 0.3 }}
     >
       {/* Heading */}
-      <h1 className="text-[#CF9274] font-mono text-3xl md:text-4xl lg:text-5xl font-semibold pb-12 md:pb-28">
+      <h1 className="font-bold text-center asso-ins-heading pb-12 md:pb-16">
         Associated Institution
       </h1>
 
