@@ -270,19 +270,7 @@ const ChooseUs = () => {
           variants={titleVariants}
         >
           <motion.div className="flex flex-col items-center justify-center space-y-4">
-            <motion.span 
-              className="text-purple-300 text-lg md:text-xl tracking-widest uppercase font-light"
-              animate={{
-                opacity: [0.7, 1, 0.7]
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity,
-                repeatType: "reverse" 
-              }}
-            >
-              Excellence in Technology Education
-            </motion.span>
+           
             
             <motion.h1 
               className="relative text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-purple-400 to-indigo-400 font-sans text-4xl md:text-6xl font-bold tracking-tight text-center z-10 leading-tight"
