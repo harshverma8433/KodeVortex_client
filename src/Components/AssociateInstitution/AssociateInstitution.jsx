@@ -3,16 +3,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import galgotia from "./galgotia.jpg";
+import { useState, useEffect } from "react";
+import "./AssociateInstitution.css";
+
+// Image Imports
+import galgotia from "./galgotia.png";
 import gla from "./gla.png";
-import iftm from "./iftm.jpg";
+import iftm from "./iftm.png";
 import iilm from "./iilm.png";
-import kalasalingam from "./kalasalingam.jpg";
+import kalasalingam from "./kalasalingam.png";
 import nims from "./nims.png";
-import sharada from "./sharada.jpg";
+import sharada from "./sharada.png";
 import vishwaniketan from "./vishwaniketan.png";
 import kg_reddy from "./kg_reddy.png";
-import "./AssociateInstitution.css"
+
 const AssociateInstitution = () => {
   const AssociateInstitutionContent = [
     galgotia,
@@ -33,44 +37,25 @@ const AssociateInstitution = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-
     autoplaySpeed: 2000,
-    // centerPadding:'10px',
-    centerMode : true,
+    centerMode: true,
     arrows: false,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 3 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 1 },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
 
-  // Animation variants for the entire container
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 1, ease: "easeOut", staggerChildren: 0.2 }
-    },
-  };
+ 
 
   // Animation for each slide
   const slideVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" },
     },
     hover: { scale: 1.1, transition: { duration: 0.3 } },
   };
@@ -79,39 +64,35 @@ const AssociateInstitution = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.3 });
 
   return (
-    <motion.div
-      className="bg-black text-center py-12 md:py-20"
-      ref={ref}
-      variants={containerVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      viewport={{ once: false, amount: 0.3 }}
-    >
-      {/* Heading */}
-      <h1 className="font-bold text-center asso-ins-heading pb-12 md:pb-16">
-        Associated Institution
-      </h1>
-
-      {/* Carousel */}
-      <motion.div variants={containerVariants}>
-        <Slider {...settings} className="px-4 md:px-10">
-          {AssociateInstitutionContent.map((image, index) => (
-            <motion.div
-              key={index}
-              className="flex justify-center"
-              variants={slideVariants}
-              whileHover="hover"
-            >
+    <>
+       <h2 className="course-heading text-center tracking-wider pb-12 md:pb-14">
+        ASSOCIATED INSTITUTION
+      </h2>
+    
+    <div className="overflow-hidden my-16  bg-gray-400 py-5">
+      
+      <motion.div
+        className="flex space-x-24 items-center w-max"
+        animate={{ x: ["0%", "-50%"] }} // Moves images seamlessly
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+      >
+        {[...AssociateInstitutionContent, ...AssociateInstitutionContent].map(
+          (image, index) => (
+            <div key={index} className="flex-shrink-0">
               <img
                 src={image}
-                alt={`Institution-${index + 1}`}
-                className="w-32 h-28 md:w-40 md:h-36 rounded-3xl"
+                alt={`Institution ${index + 1}`}
+                className="h-28 w-28 md:h-44 md:w-44 object-contain"
               />
-            </motion.div>
-          ))}
-        </Slider>
+            </div>
+          )
+        )}
       </motion.div>
-    </motion.div>
+
+      
+    </div>
+
+    </>
   );
 };
 

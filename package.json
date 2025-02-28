@@ -13,6 +13,7 @@
     "@emailjs/browser": "^4.4.1",
     "@tabler/icons-react": "^3.30.0",
     "axios": "^1.7.9",
+    "clsx": "^2.1.1",
     "flowbite-react": "^0.10.2",
     "framer-motion": "^11.3.24",
     "kodex": "file:",

@@ -45,17 +45,17 @@ const ServiceSecondSection = () => {
 
   // Define variants using a custom function for the "visible" state.
   const circleVariants = {
-    hidden: { opacity: 0, x: 0, y: 0 },
-    visible: (custom) => {
-      const angleRad = custom.angle * (Math.PI / 180);
-      return {
-        opacity: 1,
-        x: custom.radius * Math.cos(angleRad),
-        y: custom.radius * Math.sin(angleRad),
-        transition: { delay: custom.delay, duration: 0.8, ease: "easeOut" },
-      };
-    },
+    hidden: { opacity: 0 }, // Start fully hidden
+    visible: (custom) => ({
+      opacity: 1,
+      transition: {
+        delay: custom.delay, // Delay each item in order
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    }),
   };
+  
 
   // Trigger animations when this section comes into view.
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.3 });
@@ -163,20 +163,22 @@ const ServiceSecondSection = () => {
 
         {/* Each circle starts at the center then animates outward one by one */}
         {items.map((text, index) => (
-          <motion.div
-            key={index}
-            custom={{
-              angle: angles[index],
-              delay: index * 0.3,
-              radius: window.innerWidth < 768 ? 128 : radius, // Adjust radius for mobile
-            }}
-            variants={circleVariants}
-            whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-            className="absolute w-32 h-32 md:w-40 md:h-40 bg-service-sec-col text-white p-4 rounded-full flex justify-center items-center text-xs text-start shadow-md"
-          >
-            {text}
-          </motion.div>
-        ))}
+  <motion.div
+    key={index}
+    custom={{ delay: index * 0.5 }} // Delay for clockwise order
+    variants={circleVariants}
+    initial="hidden"
+    animate={inView ? "visible" : "hidden"}
+    className="absolute w-32 h-32 md:w-40 md:h-40 bg-service-sec-col text-white p-4 rounded-full flex justify-center items-center text-xs text-start shadow-md"
+    style={{
+      transform: `translate(${radius * Math.cos(angles[index] * (Math.PI / 180))}px, 
+                             ${radius * Math.sin(angles[index] * (Math.PI / 180))}px)`,
+    }}
+  >
+    {text}
+  </motion.div>
+))}
+
       </div>
     </motion.div>
   );
