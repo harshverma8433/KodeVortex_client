@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MoveLeft } from 'lucide-react';
-import { MoveRight } from 'lucide-react';
+import { MoveLeft, MoveRight } from 'lucide-react';
 
 import logodesign from "./Logo_design.png";
 import "./ServiceSecondSection.css";
-
-
 
 const testimonials = [
   {
@@ -39,28 +36,11 @@ const ServiceSecondSection = () => {
     "Skills Gap Analysis and Targeted Training Recommendations:",
   ];
 
-  // Equally spaced angles for 5 items (0°, 72°, 144°, 216°, 288°)
-  const angles = [0, 72, 144, 216, 288];
-  const radius = 256; // Default distance from center (16rem ~256px)
+  const radius = 300;
+  const duration = 2;
 
-  // Define variants using a custom function for the "visible" state.
-  const circleVariants = {
-    hidden: { opacity: 0 }, // Start fully hidden
-    visible: (custom) => ({
-      opacity: 1,
-      transition: {
-        delay: custom.delay, // Delay each item in order
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    }),
-  };
-  
-
-  // Trigger animations when this section comes into view.
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.3 });
 
-  // State for AnimatedTestimonials
   const [active, setActive] = useState(0);
 
   const handleNext = () => {
@@ -71,25 +51,18 @@ const ServiceSecondSection = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const isActive = (index) => {
-    return index === active;
-  };
-
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  const isActive = (index) => index === active;
 
   return (
     <motion.div
       ref={ref}
-      className="flex mb-4 justify-center items-center  bg-black text-white relative px-4"
+      className="flex mb-4 justify-center items-center bg-black text-white relative px-4"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       viewport={{ once: false, amount: 0.3 }}
     >
-      {/* For screens below 768px, show AnimatedTestimonials */}
-      <div className="md:hidden w-full mb-10  ">
-        <div className="max-w-sm mx-auto antialiased font-sans px-4 ">
+      <div className="md:hidden w-full mb-10">
+        <div className="max-w-sm mx-auto antialiased font-sans px-4">
           <div className="relative grid grid-cols-1 gap-20">
             <div>
               <div className="relative h-80 w-full">
@@ -97,32 +70,10 @@ const ServiceSecondSection = () => {
                   {testimonials.map((testimonial, index) => (
                     <motion.div
                       key={testimonial.src}
-                      initial={{
-                        opacity: 0,
-                        scale: 0.9,
-                        z: -100,
-                        rotate: randomRotateY(),
-                      }}
-                      animate={{
-                        opacity: isActive(index) ? 1 : 0.7,
-                        scale: isActive(index) ? 1 : 0.95,
-                        z: isActive(index) ? 0 : -100,
-                        rotate: isActive(index) ? 0 : randomRotateY(),
-                        zIndex: isActive(index)
-                          ? 999
-                          : testimonials.length + 2 - index,
-                        y: isActive(index) ? [0, -80, 0] : 0,
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: 0.9,
-                        z: 100,
-                        rotate: randomRotateY(),
-                      }}
-                      transition={{
-                        duration: 0.4,
-                        ease: "easeInOut",
-                      }}
+                      initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
+                      animate={{ opacity: isActive(index) ? 1 : 0.7, scale: isActive(index) ? 1 : 0.95 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="absolute inset-0 origin-bottom"
                     >
                       <img
@@ -136,7 +87,6 @@ const ServiceSecondSection = () => {
               </div>
             </div>
             <div className="flex justify-between flex-col py-4">
-             
               <div className="flex gap-4 pt-1">
                 <button
                   onClick={handlePrev}
@@ -155,30 +105,39 @@ const ServiceSecondSection = () => {
           </div>
         </div>
       </div>
-
-      {/* For screens above 768px, show the circular layout */}
-      <div className="hidden h-[50rem] md:flex justify-center  items-center w-full">
-        {/* Central Logo */}
+      
+      <div className="hidden h-[50rem] md:flex justify-center items-center w-full">
         <img src={logodesign} className="w-40 md:w-60 z-10" alt="logo" />
-
-        {/* Each circle starts at the center then animates outward one by one */}
-        {items.map((text, index) => (
-  <motion.div
-    key={index}
-    custom={{ delay: index * 0.5 }} // Delay for clockwise order
-    variants={circleVariants}
-    initial="hidden"
-    animate={inView ? "visible" : "hidden"}
-    className="absolute w-32 h-32 md:w-40 md:h-40 bg-service-sec-col text-white p-4 rounded-full flex justify-center items-center text-xs text-start shadow-md"
-    style={{
-      transform: `translate(${radius * Math.cos(angles[index] * (Math.PI / 180))}px, 
-                             ${radius * Math.sin(angles[index] * (Math.PI / 180))}px)`,
-    }}
-  >
-    {text}
-  </motion.div>
-))}
-
+        
+        {items.map((text, index) => {
+          const angle = (index / items.length) * 2 * Math.PI;
+          const x = radius * Math.cos(angle);
+          const y = radius * Math.sin(angle);
+          
+          return (
+            <motion.div
+              key={index}
+              className="absolute w-32 h-32 md:w-64 md:h-64 text-lg text-center text-white p-4 rounded-full flex justify-center items-center overflow-hidden"
+              initial={{ opacity: 0, x: 0, y: 0 }}
+              animate={{ opacity: 1, x, y }}
+              transition={{ delay: index * duration, duration: duration }}
+            >
+              {/* Main container with relative positioning */}
+              <div className="relative w-full h-full rounded-full">
+                {/* Dark background */}
+                <div className="absolute inset-1 bg-slate-900 rounded-full z-10"></div>
+                
+                {/* Circular snake border */}
+                <div className="circularBorder"></div>
+                
+                {/* Text content */}
+                <div className="absolute inset-1 z-20 flex items-center justify-center px-3">
+                  {text}
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );
