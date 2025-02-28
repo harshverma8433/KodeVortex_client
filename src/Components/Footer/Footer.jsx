@@ -248,7 +248,7 @@ const Footer = () => {
         <div className="mt-16 border-t border-gray-800 pt-6 pb-8">
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
             <span className="text-gray-400">
-              © {year} KodeVortex. All rights reserved.
+              © 2024 KodeVortex. All rights reserved.
             </span>
             <div className="flex items-center space-x-2 bg-gray-800 px-3 py-1 rounded-full">
               <img
