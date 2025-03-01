@@ -14,9 +14,9 @@ const GridBackground = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none bg-black">
+    <div className="fixed  inset-0 pointer-events-none bg-black">
       {/* Matrix Grid Effect */}
-      <div className="absolute inset-0 bg-black grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] grid-rows-[repeat(auto-fill,minmax(40px,1fr))] opacity-30">
+      <div className="absolute inset-0 bg-black min-h-screen grid grid-cols-[repeat(auto-fill,minmax(60px,1fr))] grid-rows-[repeat(auto-fill,minmax(40px,1fr))] opacity-30">
         {Array.from({ length: 500 }).map((_, i) => (
           <div key={i} className="border border-gray-800 w-full h-full" />
         ))}
