@@ -270,8 +270,14 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
+
+            <div> 
+              <h1>hu</h1>
+
+            </div>
           </div>
         </div>
+
       </div>
     </footer>
   );
