@@ -87,7 +87,7 @@ const FAQs = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.3 });
 
   return (
-    <div className="bg-black py-12 md:py-8  mt-4 px-4 md:px-8">
+    <div className=" py-12 md:py-8  px-4 md:px-8">
       {/* Heading */}
       <motion.h2
         className="faq-heading font-bold tracking-wider text-center mb-8 md:mb-16"

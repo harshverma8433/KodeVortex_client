@@ -15,6 +15,7 @@ import Aboutuspage from "./pages/Aboutuspage/Aboutuspage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 import KodeBumps from "./pages/KodeBumps/KodeBumps";
 import HomePage from "./pages/HomePage/HomePage";
+import GridBackground from "./Components/GridBackground/GridBackground";
 
 const App = () => {
   const [user, setUser] = useState();
@@ -40,13 +41,17 @@ const App = () => {
   }, []);
 
   const MainLayout = () => (
-    <div className="bg-black min-h-screen  overflow-hidden">
+    <div className="bg-black min-h-screen  overflow-hidden relative">
+      <GridBackground/>
+      <div className="relative z-10">
+
       <Navbar user={user} setUser={setUser} />
       <div>
         <Outlet />
       </div>
 
       <Footer />
+      </div>
     </div>
   );
   return (

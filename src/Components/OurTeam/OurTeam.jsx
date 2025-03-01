@@ -94,11 +94,11 @@ const TeamShowcase = () => {
   };
 
   return (
-    <div className="bg-black  py-12 md:pt-20">
+    <div className="  py-12 md:pt-20">
       {/* Heading */}
     
 
-      <div className="bg-gradient-to-b from-black via-slate-900 to-black  overflow-hidden">
+      <div className="bg-gradient-to-b   overflow-hidden">
         {/* Heading with animated reveal */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

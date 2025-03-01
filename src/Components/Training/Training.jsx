@@ -73,7 +73,7 @@ const Training = () => {
               />
 
               {/* Overlay (Always Visible) */}
-              <div className={`absolute inset-0 flex flex-col justify-center items-center text-white rounded-xl transition-all duration-300 bg-black bg-opacity-50`}>
+              <div className={`absolute inset-0 flex flex-col justify-center items-center text-white rounded-xl transition-all duration-300  bg-opacity-50`}>
                 <h2 className="text-2xl md:text-3xl text-center font-bold">{service.name}</h2>
                 <p className="text-lg mt-2 w-3/4 text-center">{service.description}</p>
               </div>

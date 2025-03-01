@@ -126,7 +126,7 @@ const SuccessStories = () => {
 
   return (
     <motion.div 
-      className="bg-black pb-12 md:pb-24 relative overflow-hidden" // Updated to a rich deep blue
+      className=" pb-12 md:pb-24 relative overflow-hidden" // Updated to a rich deep blue
       ref={ref}
       variants={containerVariants}
       initial="hidden"
@@ -135,7 +135,7 @@ const SuccessStories = () => {
     >
       {/* Enhanced animated background gradient */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-[#121638] via-[#1E1A45] to-[#2A2A5A] z-0" // Rich gradient background
+        className="absolute inset-0 bg-gradient-to-br  z-0" // Rich gradient background
         variants={backgroundVariants}
       />
       

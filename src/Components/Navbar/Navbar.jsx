@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { MdAccountCircle, MdMenu, MdClose } from "react-icons/md";
 import logo from "./logo.png";
+import logo1 from "./logo1.png";
 
 const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
@@ -93,7 +94,7 @@ const Navbar = ({ user, setUser }) => {
         <Link to="/" className="flex h-24 items-center">
           <div className="flex items-center">
             <img 
-              src={logo} 
+              src={logo1} 
               alt="logo.png" 
               className="w-8 sm:w-12 md:w-16 lg:w-[55%] h-auto" 
             />

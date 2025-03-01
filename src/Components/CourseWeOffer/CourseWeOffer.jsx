@@ -223,7 +223,7 @@ const CourseWeOffer = () => {
         TECHNOLOGIES WE HAVE
       </h2>
 
-      <div className="overflow-hidden bg-black py-5">
+      <div className="overflow-hidden  py-5">
         <motion.div
           className="flex space-x-24 items-center w-max"
           animate={{ x: ["0%", "-50%"] }} // Moves images seamlessly

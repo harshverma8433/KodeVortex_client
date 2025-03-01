@@ -56,7 +56,7 @@ const ServiceSecondSection = () => {
   return (
     <motion.div
       ref={ref}
-      className="flex mb-4 justify-center items-center bg-black text-white relative px-4"
+      className="flex mb-4 justify-center items-center  text-white relative px-4"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       viewport={{ once: false, amount: 0.3 }}
