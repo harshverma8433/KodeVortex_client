@@ -1,20 +1,32 @@
-import ContactUs from './ContactUs'
+import CenterOfExcellance from './CenterOfExcellance'
+import ContactForm from './ContactForm'
+// import ContactUs from './ContactUs'
 import FeatureSection from './FeatureSection'
+// import Footer from './Footer'
 import HeroParallax from './HeroParallax'
-import InfoSection from './InfoSection'
-import Pricing from './Pricing'
+// import InfoSection from './InfoSection'
+import PartnerWithUs from './PartnerWithUs'
+// import Pricing from './Pricing'
 import TechBanner from './TechBanner'
+// import TechnologyExpertise from './TechnologyExpertise'
 import Testimonials from './Testimonials'
+import TrainingApproach from './TrainingApproach'
 const KodeBumps = () => {
   return (
     <div>
         <HeroParallax/>
-        <InfoSection/>
+        <CenterOfExcellance/>
+        {/* <InfoSection/>  */}
+        <PartnerWithUs/>
+        {/* <TechnologyExpertise /> */}
+        <TrainingApproach />
         <TechBanner/>
         <FeatureSection/>
-        <Pricing/>
+        {/* <Pricing/> */}
         <Testimonials/>
-        <ContactUs/>
+        <ContactForm/>
+        {/* <ContactUs/> */}
+        {/* <Footer/> */}
     </div>
   )
 }
