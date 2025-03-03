@@ -5,10 +5,10 @@
   }
   
   .quote-card {
-    background: #0b1121;
+    /* background: #0b1121; */
     color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
