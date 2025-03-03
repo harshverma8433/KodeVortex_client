@@ -46,7 +46,7 @@ const App = () => {
       <div className="relative z-10">
 
       <Navbar user={user} setUser={setUser} />
-      <div>
+      <div className="pt-36">
         <Outlet />
       </div>
 
