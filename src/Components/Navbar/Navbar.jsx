@@ -89,7 +89,7 @@ const Navbar = ({ user, setUser }) => {
   };
 
   return (
-    <nav className="flex w-full justify-between px-[4%] mb-4 pt-4 items-center font-sans relative">
+    <nav className="flex fixed w-full justify-between px-[4%] mb-4 pt-4 items-center font-sans ">
       <div className="flex items-center">
         <Link to="/" className="flex h-24 items-center">
           <div className="flex items-center">
